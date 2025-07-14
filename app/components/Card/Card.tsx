@@ -7,13 +7,17 @@ type CardProps = {
   price: string | number;
   handleClick: (event: any) => void;
   esEspesial?: boolean;
+  paginas?: number;
+  llenguatges?: number;
+  setPaginas?: (val: number) => void;
+  setLlenguatges?: (val: number) => void;
 };
 
 const Card = (props: CardProps) => {
   const [numPaginas, setNumPaginas] = useState(0);
   const [numLlenguatges, setNumLlenguatges] = useState(0);
-  console.log("<<<pags", numPaginas);
-  console.log("<<<<Lengu", numLlenguatges);
+  // console.log("<<<pags", numPaginas);
+  // console.log("<<<<Lengu", numLlenguatges);
   return (
     <div className="max-w-md w-full bg-white rounded-lg shadow-md border p-6 mb-6 ">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
@@ -41,11 +45,17 @@ const Card = (props: CardProps) => {
         <div className="text-blue-900">
           <div className="flex flex-row items-center gap-2">
             <p>Número de pàgines</p>
-            <InputNumber value={numPaginas} onChange={setNumPaginas} />
+            <InputNumber
+              value={props.paginas || 0}
+              onChange={props.setPaginas!}
+            />
           </div>
           <div className="flex flex-row items-center gap-2">
             <p>Número de llenguatges</p>
-            <InputNumber value={numLlenguatges} onChange={setNumLlenguatges} />
+            <InputNumber
+              value={props.llenguatges || 0}
+              onChange={props.setLlenguatges!}
+            />
           </div>
         </div>
       )}

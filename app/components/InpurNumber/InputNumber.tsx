@@ -24,7 +24,7 @@ const InputNumber = ({ value, onChange }: InputNumberProps) => {
           type="number"
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="w-10 text-center border-none focus:ring-0 bg-transparent text-gray-800"
+          className="w-10 text-center border-none focus:ring-0 bg-transparent text-gray-800 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
         />
         <button
           type="button"
