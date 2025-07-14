@@ -7,6 +7,7 @@ export default function Calculate() {
   const seoPrice = 300;
   const adsPrice = 400;
   const webPrice = 500;
+  // const extraPrice = (input1 + input 2)*30
 
   const [total, setTotal] = useState(0);
 
