@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "~/components/Card/Card";
 import Header from "~/components/Header/Header";
+import Footer from "~/components/Footer/Footer";
 
 export default function Calculate() {
   const seoPrice = 300;
@@ -48,9 +49,10 @@ export default function Calculate() {
           handleClick={handleClick}
           esEspesial={true}
         />
+        <p>total: {total}</p>
       </div>
 
-      <p>total: {total}</p>
+      <Footer />
     </>
   );
 }
