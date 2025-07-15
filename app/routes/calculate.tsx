@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "~/components/Card/Card";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
-import Input from "~/components/Validation/InputValidation";
+import Form from "~/components/Validation/Form";
 import InputValidation from "~/components/Validation/InputValidation";
 
 export default function Calculate() {
@@ -65,12 +65,7 @@ export default function Calculate() {
         />
         <p>total: {total + extraPrice}</p>
       </div>
-      <InputValidation
-        label="Demanar pressupost"
-        type=""
-        id="name"
-        placeholder="Nom"
-      />
+      <Form />
       <Footer />
     </>
   );
