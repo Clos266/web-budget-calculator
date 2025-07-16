@@ -3,6 +3,7 @@ import Card from "~/components/Card/Card";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
+import Budget from "~/components/BudgetList/BudgetList";
 
 export default function Calculate() {
   const seoPrice = 300;
@@ -65,6 +66,7 @@ export default function Calculate() {
         <p>total: {total + extraPrice}</p>
       </div>
       <Form />
+      <Budget />
       <Footer />
     </>
   );
