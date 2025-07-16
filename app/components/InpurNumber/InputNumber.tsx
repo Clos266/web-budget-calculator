@@ -3,11 +3,16 @@ import React, { useState } from "react";
 type InputNumberProps = {
   value: number;
   onChange: (newValue: number) => void;
+  min?: number;
 };
 
-const InputNumber = ({ value, onChange }: InputNumberProps) => {
+const InputNumber = ({ value, onChange, min = 0 }: InputNumberProps) => {
   const increment = () => onChange(value + 1);
-  const decrement = () => onChange(Math.max(0, value - 1));
+  const decrement = () => onChange(Math.max(min, value - 1));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = Number(e.target.value);
+    onChange(Math.max(min, isNaN(newValue) ? min : newValue));
+  };
 
   return (
     <div className="inline-block border border-gray-300 rounded-md px-2 py-1 bg-white shadow-sm">
@@ -23,7 +28,8 @@ const InputNumber = ({ value, onChange }: InputNumberProps) => {
         <input
           type="number"
           value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
+          min={min}
+          onChange={handleInputChange}
           className="w-10 text-center border-none focus:ring-0 bg-transparent text-gray-800 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
         />
         <button
