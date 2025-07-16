@@ -50,7 +50,7 @@ Calculadora (/calculator).
 
 Botón en bienvenida → calculadora.✅
 
-Botón en calculadora → bienvenida.✅
+Botón en calculadora → bienvenida.✅✅
 
 Ejercicio 5: Listado de Presupuestos
 
