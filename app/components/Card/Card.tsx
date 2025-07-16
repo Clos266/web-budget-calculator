@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputNumber from "../InpurNumber/InputNumber";
+import InputNumber from "../InputNumber/InputNumber";
 
 type CardProps = {
   title: string;

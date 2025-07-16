@@ -1,87 +1,125 @@
-# Welcome to React Router!
+Checklist para el Ejercicio de Presupuestos Web
+Nivel 1
+Ejercicio 1: Checkboxes para Servicios Básicos
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Crear un proyecto con Vite + React. ✅
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Diseñar 3 checkboxes para los servicios:
 
-## Features
+Campaña SEO (300€).✅
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+Campaña de Publicidad (400€).✅
 
-## Getting Started
+Página Web (500€).✅
 
-### Installation
+Usar estados (useState) para controlar las selecciones.✅
 
-Install the dependencies:
+Calcular y mostrar el precio total en tiempo real.✅
 
-```bash
-npm install
-```
+Ejercicio 2: Personalización de Página Web
 
-### Development
+Mostrar un componente adicional al seleccionar "Página Web".✅
 
-Start the development server with HMR:
+Incluir inputs para:
 
-```bash
-npm run dev
-```
+Número de páginas.✅
 
-Your application will be available at `http://localhost:5173`.
+Número de idiomas.✅
 
-## Building for Production
+Calcular coste: (páginas + idiomas) \* 30€.✅
 
-Create a production build:
+Sumar este coste al total del presupuesto.✅
 
-```bash
-npm run build
-```
+Ejercicio 3: Botones de Incremento/Decremento✅
 
-## Deployment
+Añadir botones +/- junto a los inputs de páginas e idiomas.✅
 
-### Docker Deployment
+Permitir ajustar valores en ±1 unidad.✅
 
-To build and run using Docker:
+Validar que los valores no sean negativos.✅
 
-```bash
-docker build -t my-app .
+Ejercicio 4: Pantalla de Bienvenida y Routing
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+Crear una pantalla de bienvenida (explicación de la web).✅
 
-The containerized application can be deployed to any platform that supports Docker, including:
+Implementar React Router para navegar entre:✅
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+Bienvenida (/).
 
-### DIY Deployment
+Calculadora (/calculator).
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+Botón en bienvenida → calculadora.✅
 
-Make sure to deploy the output of `npm run build`
+Botón en calculadora → bienvenida.✅
 
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
+Ejercicio 5: Listado de Presupuestos
 
-## Styling
+Añadir inputs para:
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+Nombre del presupuesto.
 
----
+Nombre del cliente.
 
-Built with ❤️ using React Router.
+Botón "Guardar Presupuesto" que añada al listado:
+
+Servicios seleccionados.
+
+Precio total.
+
+Fecha (opcional).
+
+Mostrar el listado en una tabla o cards.
+
+Nivel 2
+Ejercicio 6: Popup de Ayuda
+
+Botón con icono de "info" (ℹ️) junto a páginas/idiomas.
+
+Al hacer clic, mostrar un modal (Bootstrap/Tailwind) con:
+
+Explicación de los campos.
+
+Ejercicio 7: Ordenación de Presupuestos
+
+3 botones en el listado:
+
+Orden alfabético (por nombre).
+
+Orden por fecha (más reciente primero).
+
+Restablecer orden original.
+
+Ejercicio 8: Buscador de Presupuestos
+
+Input de búsqueda en el listado.
+
+Filtrar presupuestos que coincidan con el texto (nombre o cliente).
+
+Ejercicio 9: Descuento Anual (20%)
+
+Checkbox/botón "Presupuesto Anual".
+
+Aplicar 20% de descuento al total.
+
+Mostrar visualmente que el descuento está activo.
+
+Nivel 3
+Ejercicio 10: Compartir URL con Parámetros
+
+Usar useSearchParams (React Router) para:
+
+Almacenar opciones en la URL (?SEO=true&pages=3).
+
+Cargar opciones al acceder a la URL.
+
+Ejemplo de URL:
+http://localhost:3000/calculator?SEO=true&Web=true&pages=2&lang=1.
+
+Extras Recomendados
+Validar inputs (ej. páginas ≥ 1).
+
+Diseño responsive (Tailwind/CSS).
+
+Animaciones suaves (ej. cambios de precio).
+
+Tests básicos (Jest/Vitest).
