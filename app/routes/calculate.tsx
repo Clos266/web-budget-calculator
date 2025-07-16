@@ -3,7 +3,6 @@ import Card from "~/components/Card/Card";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
-import InputValidation from "~/components/Validation/InputValidation";
 
 export default function Calculate() {
   const seoPrice = 300;
