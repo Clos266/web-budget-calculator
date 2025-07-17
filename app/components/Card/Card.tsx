@@ -12,13 +12,10 @@ type CardProps = {
   llenguatges?: number;
   setPaginas?: (val: number) => void;
   setLlenguatges?: (val: number) => void;
+  selected: boolean;
 };
 
 const Card = (props: CardProps) => {
-  const [numPaginas, setNumPaginas] = useState(0);
-  const [numLlenguatges, setNumLlenguatges] = useState(0);
-  // console.log("<<<pags", numPaginas);
-  // console.log("<<<<Lengu", numLlenguatges);
   return (
     <div className="max-w-md w-full bg-white rounded-lg shadow-md border p-6 mb-6 ">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
@@ -38,6 +35,7 @@ const Card = (props: CardProps) => {
           value={props.price}
           id={props.title}
           onChange={props.handleClick}
+          checked={props.selected}
         />
         <label className="text-blue-600" htmlFor="checkboxDefault">
           afegir

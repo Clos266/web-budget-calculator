@@ -1,7 +1,8 @@
 import { FiCalendar, FiDollarSign, FiUser } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
+import Calculate from "~/routes/calculate";
 
-type BudgetProps = {
+type SavedBudget = {
   price: number;
   formData: {
     name?: string;
@@ -17,13 +18,9 @@ type BudgetProps = {
   llenguatges?: number;
 };
 
-const Budget = ({
-  price,
-  formData,
-  selectedServices,
-  paginas,
-  llenguatges,
-}: BudgetProps) => {
+type Props = { budgets: SavedBudget[] };
+
+const Budget = ({ budgets }: Props) => {
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
@@ -45,17 +42,20 @@ const Budget = ({
         </div>
       </div>
 
-      <BudgetCard
-        name={formData.name || ""}
-        email={formData.email || ""}
-        phone={formData.telefon || ""}
-        seo={selectedServices.seo}
-        ads={selectedServices.ads}
-        web={selectedServices.web}
-        price={price}
-        paginas={paginas}
-        llenguatges={llenguatges}
-      />
+      {budgets.map((budget, index) => (
+        <BudgetCard
+          key={index}
+          name={budget.formData.name || ""}
+          email={budget.formData.email || ""}
+          phone={budget.formData.telefon || ""}
+          seo={budget.selectedServices.seo}
+          ads={budget.selectedServices.ads}
+          web={budget.selectedServices.web}
+          price={budget.price}
+          paginas={budget.paginas}
+          llenguatges={budget.llenguatges}
+        />
+      ))}
     </div>
   );
 };

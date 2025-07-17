@@ -10,8 +10,8 @@ const Form = ({ onSubmitForm }: FormProps) => {
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log("<<<<data", data);
-    onSubmitForm(data); // 🚀 pasa los datos al padre
+    // console.log("<<<<data", data);
+    onSubmitForm(data);
   });
 
   return (

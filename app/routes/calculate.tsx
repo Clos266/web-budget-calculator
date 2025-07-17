@@ -5,7 +5,24 @@ import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
 import Budget from "~/components/BudgetList/BudgetList";
 
+type SavedBudget = {
+  price: number;
+  formData: {
+    name?: string;
+    email?: string;
+    telefon?: string;
+  };
+  selectedServices: {
+    seo: boolean;
+    ads: boolean;
+    web: boolean;
+  };
+  paginas: number;
+  llenguatges: number;
+};
+
 export default function Calculate() {
+  const [budgets, setBudgets] = useState<SavedBudget[]>([]);
   const seoPrice = 300;
   const adsPrice = 400;
   const webPrice = 500;
@@ -22,27 +39,36 @@ export default function Calculate() {
   const extraPrice = (numPaginas + numLlenguatges) * 30;
   const handleFormSubmit = (data: any) => {
     setFormData(data);
+
+    const newBudget: SavedBudget = {
+      price,
+      formData: data,
+      selectedServices,
+      paginas: numPaginas,
+      llenguatges: numLlenguatges,
+    };
+    setBudgets((prev) => [...prev, newBudget]);
+
+    setSelectedServices({ seo: false, ads: false, web: false });
+    setNumPaginas(0);
+    setNumLlenguatges(0);
+    setTotal(0);
   };
 
-  // console.log("<<extraPrice", extraPrice);
-  // console.log("<<<paginas", numPaginas);
-  // console.log("<<<llengua", numLlenguatges);
-  // console.log("<<finalTotal", total + extraPrice);
-  const handleClick = (event: any) => {
+  const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked, value } = event.target;
 
-    // Actualiza los servicios seleccionados
     setSelectedServices((prev) => ({
       ...prev,
       [name]: checked,
     }));
 
-    // Actualiza el total
     const result = checked ? total + parseInt(value) : total - parseInt(value);
 
     setTotal(result);
   };
   const price = total + extraPrice;
+
   return (
     <>
       <Header />
@@ -54,6 +80,7 @@ export default function Calculate() {
           description="descripcion de seo"
           price={seoPrice}
           handleClick={handleClick}
+          selected={selectedServices.seo}
         />
         <Card
           title="Ads"
@@ -61,6 +88,7 @@ export default function Calculate() {
           description="descripcion de adds"
           price={adsPrice}
           handleClick={handleClick}
+          selected={selectedServices.ads}
         />
         <Card
           title="Web"
@@ -73,17 +101,12 @@ export default function Calculate() {
           llenguatges={numLlenguatges}
           setPaginas={setNumPaginas}
           setLlenguatges={setNumLlenguatges}
+          selected={selectedServices.web}
         />
         <p>total: {price}</p>
       </div>
       <Form onSubmitForm={handleFormSubmit} />
-      <Budget
-        price={price}
-        formData={formData}
-        selectedServices={selectedServices}
-        paginas={numPaginas}
-        llenguatges={numLlenguatges}
-      />
+      <Budget budgets={budgets} />
       <Footer />
     </>
   );
