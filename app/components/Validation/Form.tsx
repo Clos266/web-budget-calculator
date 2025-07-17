@@ -2,11 +2,16 @@ import InputValidation from "./InputValidation";
 import { useForm, FormProvider } from "react-hook-form";
 import { GrMail } from "react-icons/gr";
 
-const Form = () => {
+interface FormProps {
+  onSubmitForm: (data: any) => void;
+}
+
+const Form = ({ onSubmitForm }: FormProps) => {
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
+    console.log("<<<<data", data);
+    onSubmitForm(data); // 🚀 pasa los datos al padre
   });
 
   return (
@@ -14,15 +19,14 @@ const Form = () => {
       <form
         onSubmit={(e) => e.preventDefault()}
         noValidate
-        autoComplete="off"
-        className="container"
+        className="p-4 max-w-4xl mx-auto"
       >
-        <div className="container mx-auto mt-10 px-4">
-          <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8 border border-gray-200">
-            <h2 className="text-2xl font-semibold text-center mb-6 text-blue-600">
-              Demanar pressupost
-            </h2>
-            <div className="grid gap-5 md:grid-cols-2">
+        <div className="bg-white rounded-lg shadow p-6 border">
+          <h2 className="text-xl text-center mb-6 text-blue-600 font-semibold">
+            Demanar pressupost
+          </h2>
+          <div className="flex flex-col md:flex-row gap-4 items-end">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow">
               <InputValidation
                 type="text"
                 id="name"
@@ -56,7 +60,7 @@ const Form = () => {
                 validation={{
                   required: {
                     value: true,
-                    message: "Aquest camp és obligatori",
+                    message: "l'email es necessari",
                   },
                   pattern: {
                     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -64,14 +68,14 @@ const Form = () => {
                   },
                 }}
               />
-              <button
-                onClick={onSubmit}
-                className="flex items-center gap-1 p-5 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-800"
-              >
-                <GrMail />
-                Sol·licitar pressupost ➔
-              </button>
             </div>
+            <button
+              onClick={onSubmit}
+              className="bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-blue-800"
+            >
+              <GrMail />
+              Sol·licitar pressupost ➔
+            </button>
           </div>
         </div>
       </form>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InputNumber from "../InputNumber/InputNumber";
 
 type CardProps = {
+  name: string;
   title: string;
   description: string;
   price: string | number;
@@ -33,9 +34,10 @@ const Card = (props: CardProps) => {
         <input
           className="text-blue-600"
           type="checkbox"
+          name={props.name}
           value={props.price}
           id={props.title}
-          onClick={props.handleClick}
+          onChange={props.handleClick}
         />
         <label className="text-blue-600" htmlFor="checkboxDefault">
           afegir

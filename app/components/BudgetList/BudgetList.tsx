@@ -1,10 +1,31 @@
 import { FiCalendar, FiDollarSign, FiUser } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
 
-const Budget = () => {
+type BudgetProps = {
+  price: number;
+  formData: {
+    name?: string;
+    email?: string;
+    telefon?: string;
+  };
+  selectedServices: {
+    seo: boolean;
+    ads: boolean;
+    web: boolean;
+  };
+  paginas?: number;
+  llenguatges?: number;
+};
+
+const Budget = ({
+  price,
+  formData,
+  selectedServices,
+  paginas,
+  llenguatges,
+}: BudgetProps) => {
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
-      {/* Encabezado y Filtros */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <h2 className="text-xl font-bold text-white">Pressupostos en Curs</h2>
 
@@ -24,12 +45,16 @@ const Budget = () => {
         </div>
       </div>
 
-      {/* Tarjeta de Presupuesto */}
       <BudgetCard
-        name="Name Name"
-        email="email@email"
-        phone="123456"
-        price="500"
+        name={formData.name || ""}
+        email={formData.email || ""}
+        phone={formData.telefon || ""}
+        seo={selectedServices.seo}
+        ads={selectedServices.ads}
+        web={selectedServices.web}
+        price={price}
+        paginas={paginas}
+        llenguatges={llenguatges}
       />
     </div>
   );

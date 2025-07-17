@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import Calculate from "~/routes/calculate";
 
 type BudgetCardProps = {
   name: string;
   email: string;
   phone: string | number;
-  seo: string;
-  ads: string;
-  web: string;
-  price: number;
+  seo?: boolean;
+  ads?: boolean;
+  web?: boolean;
+  price: string | number;
+  paginas?: number;
+  llenguatges?: number;
 };
 
 const BudgetCard = (props: BudgetCardProps) => {
+  console.log("<<<<budgetprops", { props });
   return (
     <div className="bg-white rounded-lg border p-6 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
@@ -22,15 +26,27 @@ const BudgetCard = (props: BudgetCardProps) => {
 
         <div className="text-center">
           <h4 className="font-semibold text-blue-600">serveis contractats:</h4>
-          <div className="flex justify-center gap-2 mt-1">
+          <div className="flex flex-col gap-2 mt-1">
             <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.seo}
+              {props.seo && (
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                  SEO
+                </span>
+              )}
             </span>
             <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.ads}
+              {props.ads && (
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                  ADS
+                </span>
+              )}
             </span>
             <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.web}
+              {props.web && (
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                  WEB ({props.paginas} pàg. / {props.llenguatges} lleng.)
+                </span>
+              )}
             </span>
           </div>
         </div>
