@@ -44,14 +44,14 @@ const Card = (props: CardProps) => {
       {props.esEspesial && (
         <div className="text-blue-900">
           <div className="flex flex-row items-center gap-2">
-            <p>Número de pàgines</p>
+            <p>ℹ️ Número de pàgines</p>
             <InputNumber
               value={props.paginas || 0}
               onChange={props.setPaginas!}
             />
           </div>
           <div className="flex flex-row items-center gap-2">
-            <p>Número de llenguatges</p>
+            <p>ℹ️Número de llenguatges</p>
             <InputNumber
               value={props.llenguatges || 0}
               onChange={props.setLlenguatges!}

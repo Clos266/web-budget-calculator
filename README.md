@@ -56,19 +56,19 @@ Ejercicio 5: Listado de Presupuestos
 
 Añadir inputs para:
 
-Nombre del presupuesto.
+Nombre del presupuesto.✅
 
-Nombre del cliente.
+Nombre del cliente.✅
 
-Botón "Guardar Presupuesto" que añada al listado:
+Botón "Guardar Presupuesto" que añada al listado:✅
 
-Servicios seleccionados.
+Servicios seleccionados.✅
 
-Precio total.
+Precio total.✅
 
-Fecha (opcional).
+Fecha (opcional).✅
 
-Mostrar el listado en una tabla o cards.
+Mostrar el listado en una tabla o cards.✅
 
 Nivel 2
 Ejercicio 6: Popup de Ayuda
