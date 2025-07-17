@@ -11,10 +11,12 @@ type BudgetCardProps = {
   price: string | number;
   paginas?: number;
   llenguatges?: number;
+  date: string;
 };
 
 const BudgetCard = (props: BudgetCardProps) => {
   console.log("<<<<budgetprops", { props });
+  console.log("<<<<<date prop:", props.date);
   return (
     <div className="bg-white rounded-lg border p-6 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
@@ -52,6 +54,9 @@ const BudgetCard = (props: BudgetCardProps) => {
         </div>
 
         <div className="text-center md:text-right">
+          <p className="text-sm text-gray-500">
+            {new Date(props.date).toLocaleDateString()}
+          </p>
           <p className="font-bold text-blue-600">
             Total: <span className="text-lg">{props.price}€</span>
           </p>

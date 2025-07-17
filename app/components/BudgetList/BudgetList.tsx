@@ -1,22 +1,7 @@
 import { FiCalendar, FiDollarSign, FiUser } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
 import Calculate from "~/routes/calculate";
-
-type SavedBudget = {
-  price: number;
-  formData: {
-    name?: string;
-    email?: string;
-    telefon?: string;
-  };
-  selectedServices: {
-    seo: boolean;
-    ads: boolean;
-    web: boolean;
-  };
-  paginas?: number;
-  llenguatges?: number;
-};
+import type { SavedBudget } from "~/types/SavedBudget";
 
 type Props = { budgets: SavedBudget[] };
 
@@ -54,6 +39,7 @@ const Budget = ({ budgets }: Props) => {
           price={budget.price}
           paginas={budget.paginas}
           llenguatges={budget.llenguatges}
+          date={budget.date}
         />
       ))}
     </div>

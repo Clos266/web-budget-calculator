@@ -4,22 +4,7 @@ import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
 import Budget from "~/components/BudgetList/BudgetList";
-
-type SavedBudget = {
-  price: number;
-  formData: {
-    name?: string;
-    email?: string;
-    telefon?: string;
-  };
-  selectedServices: {
-    seo: boolean;
-    ads: boolean;
-    web: boolean;
-  };
-  paginas: number;
-  llenguatges: number;
-};
+import type { SavedBudget } from "~/types/SavedBudget";
 
 export default function Calculate() {
   const [budgets, setBudgets] = useState<SavedBudget[]>([]);
@@ -46,6 +31,7 @@ export default function Calculate() {
       selectedServices,
       paginas: numPaginas,
       llenguatges: numLlenguatges,
+      date: new Date().toISOString(),
     };
     setBudgets((prev) => [...prev, newBudget]);
 
