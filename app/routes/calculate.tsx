@@ -3,7 +3,7 @@ import Card from "~/components/Card/Card";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
-import Budget from "~/components/BudgetList/BudgetList";
+import BudgetList from "~/components/BudgetList/BudgetList";
 import type { SavedBudget } from "~/types/SavedBudget";
 
 export default function Calculate() {
@@ -92,7 +92,7 @@ export default function Calculate() {
         <p>total: {price}</p>
       </div>
       <Form onSubmitForm={handleFormSubmit} />
-      <Budget budgets={budgets} />
+      <BudgetList budgets={budgets} />
       <Footer />
     </>
   );

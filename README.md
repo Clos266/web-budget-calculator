@@ -71,13 +71,13 @@ Fecha (opcional).✅
 Mostrar el listado en una tabla o cards.✅
 
 Nivel 2
-Ejercicio 6: Popup de Ayuda
+Ejercicio 6: Popup de Ayuda ✅
 
-Botón con icono de "info" (ℹ️) junto a páginas/idiomas.
+Botón con icono de "info" (ℹ️) junto a páginas/idiomas. ✅
 
 Al hacer clic, mostrar un modal (Bootstrap/Tailwind) con:
 
-Explicación de los campos.
+Explicación de los campos.✅
 
 Ejercicio 7: Ordenación de Presupuestos
 
@@ -87,7 +87,7 @@ Orden alfabético (por nombre).
 
 Orden por fecha (más reciente primero).
 
-Restablecer orden original.
+Restablecer orden original.(guardar array original)
 
 Ejercicio 8: Buscador de Presupuestos
 
