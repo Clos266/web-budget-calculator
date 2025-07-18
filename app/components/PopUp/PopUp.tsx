@@ -1,24 +1,34 @@
 import React from "react";
 
 type PopupProps = {
+  isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  description: string;
+  children?: React.ReactNode;
 };
 
-const Popup = ({ onClose }: PopupProps) => {
+const Popup = ({
+  isOpen,
+  onClose,
+  title = "Información adicional",
+  description = "description default",
+  children,
+}: PopupProps) => {
+  if (!isOpen) return null;
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg text-center max-w-sm">
-        <p className="mb-4">Contenido del popup</p>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png"
-          alt="React Logo"
-          className="w-24 mx-auto mb-4"
-        />
+    <div className="fixed inset-0 flex justify-center items-center z-50 ">
+      <div className="bg-white p-4 rounded-md max-w-xs w-full shadow-lg text-black relative">
+        <p className="mb-3 font-semibold text-black">{title}</p>
+        <p className="mb-3">{description}</p>
+        <div className="mb-3">{children}</div>
         <button
           onClick={onClose}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-xl font-bold"
+          aria-label="Cerrar popup"
         >
-          Cerrar
+          ×
         </button>
       </div>
     </div>

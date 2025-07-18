@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputNumber from "../InputNumber/InputNumber";
+import Popup from "../PopUp/PopUp";
 
 type CardProps = {
   name: string;
@@ -16,6 +17,16 @@ type CardProps = {
 };
 
 const Card = (props: CardProps) => {
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupTitle, setPopupTitle] = useState("");
+  const [popupDescription, setPopupDescription] = useState("");
+
+  const handlePopup = (title: string, description: string) => {
+    setPopupOpen(true);
+    setPopupDescription(description);
+    setPopupTitle(title);
+  };
+
   return (
     <div className="max-w-md w-full bg-white rounded-lg shadow-md border p-6 mb-6 ">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
@@ -44,14 +55,42 @@ const Card = (props: CardProps) => {
       {props.esEspesial && (
         <div className="text-blue-900">
           <div className="flex flex-row items-center gap-2">
-            <p>ℹ️ Número de pàgines</p>
+            <p>
+              <button
+                onClick={() =>
+                  handlePopup(
+                    "Número de pàgines",
+                    "Afegeix les pàgines del teu projecte, cadascuna tindra un preu de 30€"
+                  )
+                }
+                className="underline text-blue-600 hover:text-blue-800"
+                aria-label="Mostrar info pàgines"
+              >
+                ℹ️
+              </button>
+            </p>
+            <p>Número de pàgines</p>
             <InputNumber
               value={props.paginas || 0}
               onChange={props.setPaginas!}
             />
           </div>
           <div className="flex flex-row items-center gap-2">
-            <p>ℹ️Número de llenguatges</p>
+            <p>
+              <button
+                onClick={() =>
+                  handlePopup(
+                    "Número de llenguatges",
+                    "Afegeix els llenguatges del teu projecte, cadascu tindra un preu de 30€"
+                  )
+                }
+                className="underline text-blue-600 hover:text-blue-800"
+                aria-label="Mostrar info llenguatges"
+              >
+                ℹ️
+              </button>
+            </p>
+            <p>Número de llenguatges</p>
             <InputNumber
               value={props.llenguatges || 0}
               onChange={props.setLlenguatges!}
@@ -59,6 +98,12 @@ const Card = (props: CardProps) => {
           </div>
         </div>
       )}
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={() => setPopupOpen(false)}
+        title={popupTitle}
+        description={popupDescription}
+      ></Popup>
     </div>
   );
 };
