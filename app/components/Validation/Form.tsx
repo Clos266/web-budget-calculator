@@ -21,10 +21,11 @@ const Form = ({ onSubmitForm }: FormProps) => {
         noValidate
         className="p-4 max-w-4xl mx-auto"
       >
-        <div className="bg-white rounded-lg shadow p-6 border">
-          <h2 className="text-xl text-center mb-6 text-blue-600 font-semibold">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 border border-gray-200">
+          <h2 className="text-xl text-center mb-6   font-semibold">
             Demanar pressupost
           </h2>
+
           <div className="flex flex-col md:flex-row gap-4 items-end">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow">
               <InputValidation
@@ -71,10 +72,11 @@ const Form = ({ onSubmitForm }: FormProps) => {
             </div>
             <button
               onClick={onSubmit}
-              className="bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-blue-800"
+              className="bg-blue-600 text-white py-3 px-5 rounded flex items-center gap-2 hover:bg-blue-700 transition duration-300"
+              type="submit"
             >
               <GrMail />
-              Sol·licitar pressupost ➔
+              Sol·licitar➔
             </button>
           </div>
         </div>

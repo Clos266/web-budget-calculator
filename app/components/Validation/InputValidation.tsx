@@ -27,9 +27,10 @@ const InputValidation = (props: InputProps) => {
       <input
         id={props.id}
         type={props.type}
-        className={`bg-white text-blue-600 w-full p-5 font-medium border rounded-md placeholder:opacity-60 ${
-          isInvalid ? "border-red-500" : "border-slate-300"
-        }`}
+        className={`bg-white dark:bg-gray-100 text-blue-500 w-full py-3 px-5 font-medium border rounded-md placeholder:opacity-60
+  ${isInvalid ? "border-red-500" : "border-slate-300"}
+  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+`}
         placeholder={props.placeholder}
         {...register(props.id, props.validation)}
       />

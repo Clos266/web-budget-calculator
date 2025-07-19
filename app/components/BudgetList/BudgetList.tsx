@@ -71,30 +71,35 @@ const BudgetList = ({ budgets }: Props) => {
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-        <h2 className="text-xl font-bold text-white">Pressupostos en Curs</h2>
+        <h2 className="text-xl font-bold ">Pressupostos en Curs</h2>
 
-        <div className="flex gap-2">
-          <input className="bg-white text-blue-600" type="text"></input>
-          <button className="px-3 py-1 text-sm bg-blue-800 rounded-md hover:bg-blue-200 transition">
+        <div className="flex h-9 gap-2">
+          <input
+            type="text"
+            placeholder="Cerca..."
+            className="bg-white border border-gray-300 rounded-md px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
             <FiSearch className="inline mr-1" />
           </button>
         </div>
-        <div className="flex gap-2">
-          <button className="px-3 py-1 text-sm bg-blue-800 rounded-md hover:bg-blue-200 transition">
+
+        <div className="flex gap-2 h-9 flex-wrap">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
             <FiCalendar className="inline mr-1" />
             Data
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-800 rounded-md hover:bg-gray-200 transition">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
             <FiDollarSign className="inline mr-1" />
             Import
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-800 rounded-md hover:bg-gray-200 transition">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
             <FiUser className="inline mr-1" />
             Nom
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-800 rounded-md hover:bg-gray-200 transition">
+          <button className="px-3 py-1 text-sm bg-blue-600  text-white rounded-md hover:bg-blue-700 transition flex items-center">
             <FiRefreshCcw className="inline mr-1" />
-            reset
+            Reset
           </button>
         </div>
       </div>

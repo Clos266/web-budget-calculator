@@ -59,37 +59,41 @@ export default function Calculate() {
     <>
       <Header />
 
-      <div className="border border-red-500 flex flex-col items-center justify-center ">
-        <Card
-          title="Seo"
-          name="seo"
-          description="descripcion de seo"
-          price={seoPrice}
-          handleClick={handleClick}
-          selected={selectedServices.seo}
-        />
-        <Card
-          title="Ads"
-          name="ads"
-          description="descripcion de adds"
-          price={adsPrice}
-          handleClick={handleClick}
-          selected={selectedServices.ads}
-        />
-        <Card
-          title="Web"
-          name="web"
-          description="descripcion de web"
-          price={webPrice}
-          handleClick={handleClick}
-          esEspesial={true}
-          paginas={numPaginas}
-          llenguatges={numLlenguatges}
-          setPaginas={setNumPaginas}
-          setLlenguatges={setNumLlenguatges}
-          selected={selectedServices.web}
-        />
-        <p>total: {price}</p>
+      <div className="p-6 max-w-4xl mx-auto space-y-8">
+        <section className="space-y-6">
+          <Card
+            title="Seo"
+            name="seo"
+            description="Optimització per a motors de cerca per millorar la visibilitat."
+            price={seoPrice}
+            handleClick={handleClick}
+            selected={selectedServices.seo}
+          />
+          <Card
+            title="Ads"
+            name="ads"
+            description="Gestió de campanyes publicitàries per arribar al teu públic objectiu."
+            price={adsPrice}
+            handleClick={handleClick}
+            selected={selectedServices.ads}
+          />
+          <Card
+            title="Web"
+            name="web"
+            description="Disseny i desenvolupament de pàgines web personalitzades."
+            price={webPrice}
+            handleClick={handleClick}
+            esEspesial={true}
+            paginas={numPaginas}
+            llenguatges={numLlenguatges}
+            setPaginas={setNumPaginas}
+            setLlenguatges={setNumLlenguatges}
+            selected={selectedServices.web}
+          />
+          <p className="text-right font-semibold text-lg ">
+            Preu total: {price} €
+          </p>
+        </section>
       </div>
       <Form onSubmitForm={handleFormSubmit} />
       <BudgetList budgets={budgets} />

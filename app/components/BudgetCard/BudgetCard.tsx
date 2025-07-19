@@ -18,48 +18,40 @@ const BudgetCard = (props: BudgetCardProps) => {
   console.log("<<<<budgetprops", { props });
   console.log("<<<<<date prop:", props.date);
   return (
-    <div className="bg-white rounded-lg border p-6 shadow-sm">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-        <div className="text-center md:text-left">
-          <h3 className="font-semibold text-blue-600">{props.name}</h3>
-          <p className="text-gray-600 text-sm">{props.email}</p>
-          <p className="text-gray-600 text-sm">{props.phone}</p>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 p-6 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+        <div className="flex flex-col text-left sm:w-1/3">
+          <h3 className="text-xl font-semibold ">{props.name}</h3>
+          <p className="text-gray-500 text-sm mt-1">{props.email}</p>
+          <p className="text-gray-500 text-sm">{props.phone}</p>
         </div>
 
-        <div className="text-center">
-          <h4 className="font-semibold text-blue-600">serveis contractats:</h4>
-          <div className="flex flex-col gap-2 mt-1">
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.seo && (
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-                  SEO
-                </span>
-              )}
-            </span>
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.ads && (
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-                  ADS
-                </span>
-              )}
-            </span>
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              {props.web && (
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-                  WEB ({props.paginas} pàg. / {props.llenguatges} lleng.)
-                </span>
-              )}
-            </span>
+        <div className="flex flex-col text-left sm:w-1/3">
+          <h4 className="text-lg font-semibold  mb-2">Serveis contractats:</h4>
+          <div className="flex flex-wrap gap-2">
+            {props.seo && (
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+                SEO
+              </span>
+            )}
+            {props.ads && (
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+                ADS
+              </span>
+            )}
+            {props.web && (
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+                WEB ({props.paginas} pàg. / {props.llenguatges} lleng.)
+              </span>
+            )}
           </div>
         </div>
 
-        <div className="text-center md:text-right">
-          <p className="text-sm text-gray-500">
+        <div className="flex flex-col items-start sm:items-end sm:w-1/3">
+          <p className="text-sm text-gray-500 mb-1">
             {new Date(props.date).toLocaleDateString()}
           </p>
-          <p className="font-bold text-blue-600">
-            Total: <span className="text-lg">{props.price}€</span>
-          </p>
+          <p className="text-2xl font-bold ">{props.price}€</p>
         </div>
       </div>
     </div>
