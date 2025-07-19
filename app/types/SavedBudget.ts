@@ -1,7 +1,7 @@
 export type SavedBudget = {
   price: number;
   formData: {
-    name?: string;
+    name: string;
     email?: string;
     telefon?: string;
   };

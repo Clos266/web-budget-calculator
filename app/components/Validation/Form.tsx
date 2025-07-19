@@ -1,6 +1,5 @@
 import InputValidation from "./InputValidation";
 import { useForm, FormProvider } from "react-hook-form";
-import { GrMail } from "react-icons/gr";
 
 interface FormProps {
   onSubmitForm: (data: any) => void;
@@ -26,7 +25,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
             Demanar pressupost
           </h2>
 
-          <div className="flex flex-col md:flex-row gap-4 items-end">
+          <div className="flex flex-col md:flex-row gap-4 md:items-end">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow">
               <InputValidation
                 type="text"
@@ -72,10 +71,9 @@ const Form = ({ onSubmitForm }: FormProps) => {
             </div>
             <button
               onClick={onSubmit}
-              className="bg-blue-600 text-white py-3 px-5 rounded flex items-center gap-2 hover:bg-blue-700 transition duration-300"
+              className="bg-blue-600 text-white py-3 px-5 rounded flex items-center justify-center gap-2 hover:bg-blue-700 transition duration-300"
               type="submit"
             >
-              <GrMail />
               Pressuposta➔
             </button>
           </div>

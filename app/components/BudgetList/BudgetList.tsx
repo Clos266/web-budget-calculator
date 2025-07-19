@@ -7,16 +7,13 @@ import {
 } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
 import type { SavedBudget } from "~/types/SavedBudget";
+import React, { useState } from "react";
 
 type Props = { budgets: SavedBudget[] };
 
 const BudgetList = ({ budgets }: Props) => {
   // console.log("<<bugets", budgets);
   const originalBudget = [];
-  const dateBudget = [];
-  const alphaBudget = [];
-  const priceBudget = [];
-
   const fakeBudgets = [
     {
       price: 1260,
@@ -67,7 +64,23 @@ const BudgetList = ({ budgets }: Props) => {
       date: "2025-07-18T14:30:10.005Z",
     },
   ];
-  const finalbudget = [...budgets, ...fakeBudgets];
+  const finalBudget = [...budgets, ...fakeBudgets];
+  const [name, setName] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    console.log("<<e busca busca", e.target);
+  };
+  let searchResult = [];
+  if (!search) {
+    searchResult = finalBudget;
+  } else {
+    searchResult = finalBudget.filter((dato) =>
+      dato.formData.name.toLowerCase().includes(search.toLocaleLowerCase())
+    );
+  }
+  console.log("<<<searchresult", searchResult);
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 mb-6">
@@ -77,6 +90,8 @@ const BudgetList = ({ budgets }: Props) => {
 
         <div className="flex h-9 gap-2 justify-center sm:justify-start w-full sm:w-auto">
           <input
+            onChange={searcher}
+            value={search}
             type="text"
             placeholder="Cerca..."
             className="bg-white border border-gray-300 rounded-md px-2 py-1 text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto"
@@ -105,7 +120,7 @@ const BudgetList = ({ budgets }: Props) => {
         </div>
       </div>
 
-      {finalbudget.map((budget, index) => {
+      {searchResult.map((budget, index) => {
         console.log("<<budget", budget);
         return (
           <BudgetCard
