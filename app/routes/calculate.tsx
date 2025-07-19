@@ -58,45 +58,52 @@ export default function Calculate() {
   return (
     <>
       <Header />
-
-      <div className="p-6 max-w-4xl mx-auto space-y-8">
-        <section className="space-y-6">
-          <Card
-            title="Seo"
-            name="seo"
-            description="Optimització per a motors de cerca per millorar la visibilitat."
-            price={seoPrice}
-            handleClick={handleClick}
-            selected={selectedServices.seo}
-          />
-          <Card
-            title="Ads"
-            name="ads"
-            description="Gestió de campanyes publicitàries per arribar al teu públic objectiu."
-            price={adsPrice}
-            handleClick={handleClick}
-            selected={selectedServices.ads}
-          />
-          <Card
-            title="Web"
-            name="web"
-            description="Disseny i desenvolupament de pàgines web personalitzades."
-            price={webPrice}
-            handleClick={handleClick}
-            esEspesial={true}
-            paginas={numPaginas}
-            llenguatges={numLlenguatges}
-            setPaginas={setNumPaginas}
-            setLlenguatges={setNumLlenguatges}
-            selected={selectedServices.web}
-          />
-          <p className="text-right font-semibold text-lg ">
-            Preu total: {price} €
-          </p>
-        </section>
+      <div
+        className="relative flex-grow flex flex-col items-center justify-center p-6 text-center space-y-8
+  bg-gradient-to-br from-blue-50 via-white to-blue-100
+  dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+  overflow-hidden
+"
+      >
+        <div className="p-6 max-w-4xl mx-auto space-y-8">
+          <section className="space-y-6">
+            <Card
+              title="Seo"
+              name="seo"
+              description="Optimització per a motors de cerca per millorar la visibilitat."
+              price={seoPrice}
+              handleClick={handleClick}
+              selected={selectedServices.seo}
+            />
+            <Card
+              title="Ads"
+              name="ads"
+              description="Gestió de campanyes publicitàries per arribar al teu públic objectiu."
+              price={adsPrice}
+              handleClick={handleClick}
+              selected={selectedServices.ads}
+            />
+            <Card
+              title="Web"
+              name="web"
+              description="Disseny i desenvolupament de pàgines web personalitzades."
+              price={webPrice}
+              handleClick={handleClick}
+              esEspesial={true}
+              paginas={numPaginas}
+              llenguatges={numLlenguatges}
+              setPaginas={setNumPaginas}
+              setLlenguatges={setNumLlenguatges}
+              selected={selectedServices.web}
+            />
+            <p className="text-center font-semibold text-lg ">
+              Preu total: {price} €
+            </p>
+          </section>
+        </div>
+        <Form onSubmitForm={handleFormSubmit} />
+        <BudgetList budgets={budgets} />
       </div>
-      <Form onSubmitForm={handleFormSubmit} />
-      <BudgetList budgets={budgets} />
       <Footer />
     </>
   );

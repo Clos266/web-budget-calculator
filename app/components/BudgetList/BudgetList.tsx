@@ -70,36 +70,37 @@ const BudgetList = ({ budgets }: Props) => {
   const finalbudget = [...budgets, ...fakeBudgets];
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-        <h2 className="text-xl font-bold ">Pressupostos en Curs</h2>
+      <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 mb-6">
+        <h2 className="text-xl font-bold text-center sm:text-left flex-grow">
+          Pressupostos en Curs
+        </h2>
 
-        <div className="flex h-9 gap-2">
+        <div className="flex h-9 gap-2 justify-center sm:justify-start w-full sm:w-auto">
           <input
             type="text"
             placeholder="Cerca..."
-            className="bg-white border border-gray-300 rounded-md px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-white border border-gray-300 rounded-md px-2 py-1 text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto"
           />
-          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
             <FiSearch className="inline mr-1" />
           </button>
         </div>
 
-        <div className="flex gap-2 h-9 flex-wrap">
-          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
+        <div className="flex gap-2 h-9 flex-wrap justify-center sm:justify-start w-full sm:w-auto">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
             <FiCalendar className="inline mr-1" />
             Data
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
             <FiDollarSign className="inline mr-1" />
             Import
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
             <FiUser className="inline mr-1" />
             Nom
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-600  text-white rounded-md hover:bg-blue-700 transition flex items-center">
+          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
             <FiRefreshCcw className="inline mr-1" />
-            Reset
           </button>
         </div>
       </div>

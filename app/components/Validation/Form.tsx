@@ -76,7 +76,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
               type="submit"
             >
               <GrMail />
-              Sol·licitar➔
+              Pressuposta➔
             </button>
           </div>
         </div>
