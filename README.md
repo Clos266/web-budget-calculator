@@ -5,6 +5,7 @@
 This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to deepen our understanding of React by creating reusable and scalable components that interact through props at different levels.
 
 🚀 Technologies Used
+
 React (with TypeScript)
 
 React Router
