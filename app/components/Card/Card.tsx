@@ -14,6 +14,7 @@ type CardProps = {
   setPaginas?: (val: number) => void;
   setLlenguatges?: (val: number) => void;
   selected: boolean;
+  hasDiscount?: boolean;
 };
 
 const Card = (props: CardProps) => {
@@ -38,6 +39,7 @@ const Card = (props: CardProps) => {
         </div>
 
         <div className="flex items-center justify-center flex-1 mt-4 sm:mt-0">
+          {props.hasDiscount && <div>20%off</div>}
           <h6 className="text-2xl font-bold ">{props.price}€</h6>
         </div>
 

@@ -9,7 +9,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit((data) => {
-    // console.log("<<<<data", data);
+    console.log("^^data", data);
     onSubmitForm(data);
   });
 

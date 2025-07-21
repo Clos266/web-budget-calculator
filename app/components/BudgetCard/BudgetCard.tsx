@@ -8,7 +8,7 @@ type BudgetCardProps = {
   seo?: boolean;
   ads?: boolean;
   web?: boolean;
-  price: string | number;
+  totalPlusUltra: string | number;
   paginas?: number;
   llenguatges?: number;
   date: string;
@@ -51,7 +51,7 @@ const BudgetCard = (props: BudgetCardProps) => {
           <p className="text-sm text-gray-500 mb-1">
             {new Date(props.date).toLocaleDateString()}
           </p>
-          <p className="text-2xl font-bold ">{props.price}€</p>
+          <p className="text-2xl font-bold ">{props.totalPlusUltra}€</p>
         </div>
       </div>
     </div>

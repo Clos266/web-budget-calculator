@@ -6,12 +6,12 @@ import {
 } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
 import type { SavedBudget } from "~/types/SavedBudget";
-import React, { useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 type Props = { budgets: SavedBudget[] };
 const fakeBudgets = [
   {
-    price: 1260,
+    totalPlusUltra: 1260,
     formData: {
       name: "pedrin",
       telefon: "12345643424",
@@ -27,7 +27,7 @@ const fakeBudgets = [
     date: "2025-07-18T14:29:34.697Z",
   },
   {
-    price: 22222,
+    totalPlusUltra: 22222,
     formData: {
       name: "jamon",
       telefon: "12345643424",
@@ -43,7 +43,7 @@ const fakeBudgets = [
     date: "2025-07-17T14:29:54.665Z",
   },
   {
-    price: 9,
+    totalPlusUltra: 9,
     formData: {
       name: "supsup",
       telefon: "12345643424",
@@ -59,10 +59,19 @@ const fakeBudgets = [
     date: "2025-07-16T14:30:10.005Z",
   },
 ];
+
 const BudgetList = ({ budgets }: Props) => {
-  const finalBudget = [...budgets, ...fakeBudgets];
-  const [sortedBudgets, setSortedBudgets] = useState(finalBudget);
+  // const finalBudget = [...budgets, ...fakeBudgets];
+  // const [sortedBudgets, setSortedBudgets] = useState(finalBudget);
+
+  const finalBudget = useMemo(() => [...budgets, ...fakeBudgets], [budgets]);
+
+  const [sortedBudgets, setSortedBudgets] = useState<SavedBudget[]>([]);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    setSortedBudgets(finalBudget);
+  }, [finalBudget]);
 
   ////////bloque de filtros de busqueda
 
@@ -87,13 +96,21 @@ const BudgetList = ({ budgets }: Props) => {
   //////bloke filtro por precio.. falta imprimir....
 
   const sortByPrice = () => {
-    const sorted = [...sortedBudgets].sort((a, b) => a.price - b.price);
+    const sorted = [...sortedBudgets].sort(
+      (a, b) => a.totalPlusUltra - b.totalPlusUltra
+    );
     setSortedBudgets(sorted);
   };
 
   ////bloque filtro por fecha... se viene lio liote
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // console.log("<<le click", e.target.value);
+  };
+
+  ///bloque del reset
+
+  const reset = () => {
+    setSortedBudgets(finalBudget);
   };
 
   return (
@@ -133,14 +150,18 @@ const BudgetList = ({ budgets }: Props) => {
             <FiDollarSign className="inline mr-1" />
             Import
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center">
+          <button
+            onClick={reset}
+            className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center"
+          >
             <FiRefreshCcw className="inline mr-1" /> Reset
           </button>
         </div>
       </div>
 
       {sortedBudgets.map((budget, index) => {
-        console.log("<<budget", budget);
+        console.log("^^budgets array", budgets);
+        console.log("^^fakebudgets", fakeBudgets);
         return (
           <BudgetCard
             key={index}
@@ -150,7 +171,7 @@ const BudgetList = ({ budgets }: Props) => {
             seo={budget.selectedServices.seo}
             ads={budget.selectedServices.ads}
             web={budget.selectedServices.web}
-            price={budget.price}
+            totalPlusUltra={budget.totalPlusUltra}
             paginas={budget.paginas}
             llenguatges={budget.llenguatges}
             date={budget.date}

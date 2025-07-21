@@ -1,5 +1,6 @@
 export type SavedBudget = {
-  price: number;
+  totalPlusUltra: number ;
+  
   formData: {
     name: string;
     email?: string;

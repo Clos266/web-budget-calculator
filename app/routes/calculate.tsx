@@ -21,12 +21,13 @@ export default function Calculate() {
     ads: false,
     web: false,
   });
-  const extraPrice = (numPaginas + numLlenguatges) * 30;
+  const [hasDisount, setHasDiscount] = useState(false);
+
   const handleFormSubmit = (data: any) => {
     setFormData(data);
 
     const newBudget: SavedBudget = {
-      price,
+      totalPlusUltra,
       formData: data,
       selectedServices,
       paginas: numPaginas,
@@ -41,7 +42,11 @@ export default function Calculate() {
     setTotal(0);
   };
 
+  const extraPrice = (numPaginas + numLlenguatges) * 30;
+  console.log("çççextra price", extraPrice);
+
   const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("çç numeros", { numLlenguatges, numPaginas });
     const { name, checked, value } = event.target;
 
     setSelectedServices((prev) => ({
@@ -52,9 +57,19 @@ export default function Calculate() {
     const result = checked ? total + parseInt(value) : total - parseInt(value);
 
     setTotal(result);
-  };
-  const price = total + extraPrice;
 
+    console.log("çççresult", result);
+  };
+  const totalPlusUltra = hasDisount
+    ? (total + extraPrice) * 0.8
+    : total + extraPrice;
+
+  let discount = (e: { target: { checked: any } }) => {
+    const { checked } = e.target;
+    console.log("ççç checked", checked);
+
+    setHasDiscount(checked);
+  };
   return (
     <>
       <Header />
@@ -66,6 +81,17 @@ export default function Calculate() {
 "
       >
         <div className="p-6 max-w-4xl mx-auto space-y-8">
+          <div>
+            {" "}
+            <input
+              className="accent-blue-600 w-5 h-5"
+              type="checkbox"
+              onChange={discount}
+            />
+            <label className="text-sm  font-medium" htmlFor="checkboxDefault">
+              20%
+            </label>
+          </div>
           <section className="space-y-6">
             <Card
               title="Seo"
@@ -87,7 +113,7 @@ export default function Calculate() {
               title="Web"
               name="web"
               description="Disseny i desenvolupament de pàgines web personalitzades."
-              price={webPrice}
+              price={hasDisount ? webPrice * 0.8 : webPrice}
               handleClick={handleClick}
               esEspesial={true}
               paginas={numPaginas}
@@ -95,9 +121,10 @@ export default function Calculate() {
               setPaginas={setNumPaginas}
               setLlenguatges={setNumLlenguatges}
               selected={selectedServices.web}
+              hasDiscount={hasDisount}
             />
             <p className="text-center font-semibold text-lg ">
-              Preu total: {price} €
+              Preu total: {totalPlusUltra} €
             </p>
           </section>
         </div>
