@@ -1,5 +1,7 @@
-![Demo](https://i.ibb.co/qLNQwYYS/images.gif)
 💰 Web Budget Calculator — Sprint 6
+
+<img src="https://i.ibb.co/qLNQwYYS/images.gif" alt="Demo" width="600" />
+
 This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to deepen our understanding of React by creating reusable and scalable components that interact through props at different levels.
 
 🚀 Technologies Used
