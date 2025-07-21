@@ -11,7 +11,7 @@ import React, { useEffect, useState, useMemo } from "react";
 type Props = { budgets: SavedBudget[] };
 const fakeBudgets = [
   {
-    totalPlusUltra: 1260,
+    total: 1260,
     formData: {
       name: "pedrin",
       telefon: "12345643424",
@@ -27,7 +27,7 @@ const fakeBudgets = [
     date: "2025-07-18T14:29:34.697Z",
   },
   {
-    totalPlusUltra: 22222,
+    total: 22222,
     formData: {
       name: "jamon",
       telefon: "12345643424",
@@ -43,7 +43,7 @@ const fakeBudgets = [
     date: "2025-07-17T14:29:54.665Z",
   },
   {
-    totalPlusUltra: 9,
+    total: 9,
     formData: {
       name: "supsup",
       telefon: "12345643424",
@@ -96,9 +96,7 @@ const BudgetList = ({ budgets }: Props) => {
   //////bloke filtro por precio.. falta imprimir....
 
   const sortByPrice = () => {
-    const sorted = [...sortedBudgets].sort(
-      (a, b) => a.totalPlusUltra - b.totalPlusUltra
-    );
+    const sorted = [...sortedBudgets].sort((a, b) => a.total - b.total);
     setSortedBudgets(sorted);
   };
 
@@ -171,7 +169,7 @@ const BudgetList = ({ budgets }: Props) => {
             seo={budget.selectedServices.seo}
             ads={budget.selectedServices.ads}
             web={budget.selectedServices.web}
-            totalPlusUltra={budget.totalPlusUltra}
+            total={budget.total}
             paginas={budget.paginas}
             llenguatges={budget.llenguatges}
             date={budget.date}

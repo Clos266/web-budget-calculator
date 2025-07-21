@@ -1,5 +1,5 @@
 export type SavedBudget = {
-  totalPlusUltra: number ;
+  total: number ;
   
   formData: {
     name: string;

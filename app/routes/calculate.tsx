@@ -23,8 +23,28 @@ export default function Calculate() {
   });
   const [hasDisount, setHasDiscount] = useState(false);
 
+  const handleFormSubmit = (data: any) => {
+    setFormData(data);
+
+    const newBudget: SavedBudget = {
+      total,
+      formData: data,
+      selectedServices,
+      paginas: numPaginas,
+      llenguatges: numLlenguatges,
+      date: new Date().toISOString(),
+    };
+    setBudgets((prev) => [...prev, newBudget]);
+
+    setSelectedServices({ seo: false, ads: false, web: false });
+    setNumPaginas(0);
+    setNumLlenguatges(0);
+    setTotal(0);
+  };
+
+  //////
   const calculateTotal = (
-    services: typeof selectedServices,
+    services: any,
     paginas: number,
     llenguatges: number,
     discount: boolean
@@ -33,7 +53,7 @@ export default function Calculate() {
       (services.seo ? seoPrice : 0) +
       (services.ads ? adsPrice : 0) +
       (services.web ? webPrice : 0);
-    const extras = (paginas + llenguatges) * 30;
+    const extras = services.web ? (paginas + llenguatges) * 30 : 0;
     const total = base + extras;
     return discount ? total * 0.8 : total;
   };
@@ -47,26 +67,6 @@ export default function Calculate() {
     );
     setTotal(newTotal);
   }, [selectedServices, numPaginas, numLlenguatges, hasDisount]);
-
-  const handleFormSubmit = (data: any) => {
-    setFormData(data);
-
-    const newBudget: SavedBudget = {
-      totalPlusUltra: total,
-      formData: data,
-      selectedServices,
-      paginas: numPaginas,
-      llenguatges: numLlenguatges,
-      date: new Date().toISOString(),
-    };
-    setBudgets((prev) => [...prev, newBudget]);
-
-    setSelectedServices({ seo: false, ads: false, web: false });
-    setNumPaginas(0);
-    setNumLlenguatges(0);
-    setTotal(0);
-    setHasDiscount(false);
-  };
 
   const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
@@ -86,18 +86,20 @@ export default function Calculate() {
       <Header />
       <div
         className="relative flex-grow flex flex-col items-center justify-center p-6 text-center space-y-8
-        bg-gradient-to-br from-blue-50 via-white to-blue-100
-        dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-        overflow-hidden"
+  bg-gradient-to-br from-blue-50 via-white to-blue-100
+  dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+  overflow-hidden
+"
       >
         <div className="p-6 max-w-4xl mx-auto space-y-8">
           <div>
+            {" "}
             <input
               className="accent-blue-600 w-5 h-5"
               type="checkbox"
               onChange={discount}
             />
-            <label className="text-sm font-medium" htmlFor="checkboxDefault">
+            <label className="text-sm  font-medium" htmlFor="checkboxDefault">
               20%
             </label>
           </div>
@@ -134,7 +136,7 @@ export default function Calculate() {
               selected={selectedServices.web}
               hasDiscount={hasDisount}
             />
-            <p className="text-center font-semibold text-lg">
+            <p className="text-center font-semibold text-lg ">
               Preu total: {total} €
             </p>
           </section>
