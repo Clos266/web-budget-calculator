@@ -92,16 +92,19 @@ export default function Calculate() {
 "
       >
         <div className="p-6 max-w-4xl mx-auto space-y-8">
-          <div>
-            {" "}
-            <input
-              className="accent-blue-600 w-5 h-5"
-              type="checkbox"
-              onChange={discount}
-            />
-            <label className="text-sm  font-medium" htmlFor="checkboxDefault">
-              20%
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-sm text-gray-700">Pagament mensual</span>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                className="sr-only peer"
+                onChange={discount}
+                checked={hasDisount}
+              />
+              <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-blue-600 transition-colors duration-200"></div>
+              <div className="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-5 transition-transform duration-200"></div>
             </label>
+            <span className="text-sm text-gray-700">Pagament anual (-20%)</span>
           </div>
           <section className="space-y-6">
             <Card

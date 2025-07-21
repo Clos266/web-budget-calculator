@@ -38,9 +38,11 @@ const Card = (props: CardProps) => {
           </h4>
         </div>
 
-        <div className="flex items-center justify-center flex-1 mt-4 sm:mt-0">
-          {props.hasDiscount && <div>20%off</div>}
-          <h6 className="text-2xl font-bold ">{props.price}€</h6>
+        <div className="flex flex-col items-center justify-center flex-1 mt-4 sm:mt-0 text-center">
+          {props.hasDiscount && (
+            <div className="text-sm text-red-400 opacity-80 mb-1">20% off</div>
+          )}
+          <h6 className="text-2xl font-bold">{props.price}€</h6>
         </div>
 
         <div className="flex flex-col items-end flex-1 mt-4 sm:mt-0 gap-4">
