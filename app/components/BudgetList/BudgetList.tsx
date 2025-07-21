@@ -13,9 +13,9 @@ const fakeBudgets = [
   {
     total: 1260,
     formData: {
-      name: "pedrin",
+      name: "Pedro Piedras",
       telefon: "12345643424",
-      email: "pe@dro.n",
+      email: "pedro@piedras.com",
     },
     selectedServices: {
       seo: true,
@@ -29,30 +29,30 @@ const fakeBudgets = [
   {
     total: 22222,
     formData: {
-      name: "jamon",
+      name: "Ramon Jamon",
       telefon: "12345643424",
-      email: "pe@dro.jamon",
+      email: "Ramon@jam.on",
     },
     selectedServices: {
       seo: true,
       ads: false,
       web: false,
     },
-    paginas: 55555,
-    llenguatges: 0,
+    paginas: 2,
+    llenguatges: 1,
     date: "2025-07-17T14:29:54.665Z",
   },
   {
     total: 9,
     formData: {
-      name: "supsup",
+      name: "Sup Sup",
       telefon: "12345643424",
       email: "sup@su.p",
     },
     selectedServices: {
       seo: false,
       ads: true,
-      web: false,
+      web: true,
     },
     paginas: 0,
     llenguatges: 10,

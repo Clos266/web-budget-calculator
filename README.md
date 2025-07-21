@@ -1,125 +1,46 @@
-Checklist para el Ejercicio de Presupuestos Web
-Nivel 1
-Ejercicio 1: Checkboxes para Servicios Básicos
+![Demo](https://i.ibb.co/qLNQwYYS/images.gif)
+💰 Web Budget Calculator — Sprint 6
+This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to deepen our understanding of React by creating reusable and scalable components that interact through props at different levels.
 
-Crear un proyecto con Vite + React. ✅
+🚀 Technologies Used
+React (with TypeScript)
 
-Diseñar 3 checkboxes para los servicios:
+React Router
 
-Campaña SEO (300€).✅
+Vite
 
-Campaña de Publicidad (400€).✅
+Tailwind CSS
 
-Página Web (500€).✅
+📌 Project Status
+The MVP is complete and fully functional, except for the last exercise, which I couldn’t finish due to time constraints. Below is the timeline for this sprint: Sprint End Planned: 18-07-2025
 
-Usar estados (useState) para controlar las selecciones.✅
+🛠️ Getting Started
 
-Calcular y mostrar el precio total en tiempo real.✅
+1. Clone this repo
 
-Ejercicio 2: Personalización de Página Web
+```bash
+git clone https://github.com/Clos266/web-budget-calculator
+```
 
-Mostrar un componente adicional al seleccionar "Página Web".✅
+2. Install dependencies
 
-Incluir inputs para:
+```bash
+$ npm install
+```
 
-Número de páginas.✅
+3. Run the development server
 
-Número de idiomas.✅
+```bash
+$ npm run dev
+```
 
-Calcular coste: (páginas + idiomas) \* 30€.✅
+📈 Future Improvements
+Add tests (though I haven’t fully mastered the basics yet, so I’m not sure how to approach testing at this stage).
 
-Sumar este coste al total del presupuesto.✅
+Refactor all text content to be consistently in English (currently there's some Spanglish/Catanglish).
 
-Ejercicio 3: Botones de Incremento/Decremento✅
+Improve folder structure — this is my second React project and my first one using React Router, so things got a bit messy.
 
-Añadir botones +/- junto a los inputs de páginas e idiomas.✅
+Split large files that contain too much logic or too many responsibilities.
 
-Permitir ajustar valores en ±1 unidad.✅
-
-Validar que los valores no sean negativos.✅
-
-Ejercicio 4: Pantalla de Bienvenida y Routing
-
-Crear una pantalla de bienvenida (explicación de la web).✅
-
-Implementar React Router para navegar entre:✅
-
-Bienvenida (/).
-
-Calculadora (/calculator).
-
-Botón en bienvenida → calculadora.✅
-
-Botón en calculadora → bienvenida.✅✅
-
-Ejercicio 5: Listado de Presupuestos
-
-Añadir inputs para:
-
-Nombre del presupuesto.✅
-
-Nombre del cliente.✅
-
-Botón "Guardar Presupuesto" que añada al listado:✅
-
-Servicios seleccionados.✅
-
-Precio total.✅
-
-Fecha (opcional).✅
-
-Mostrar el listado en una tabla o cards.✅
-
-Nivel 2
-Ejercicio 6: Popup de Ayuda ✅
-
-Botón con icono de "info" (ℹ️) junto a páginas/idiomas. ✅
-
-Al hacer clic, mostrar un modal (Bootstrap/Tailwind) con:
-
-Explicación de los campos.✅
-
-Ejercicio 7: Ordenación de Presupuestos
-
-3 botones en el listado:
-
-Orden alfabético (por nombre).
-
-Orden por fecha (más reciente primero).
-
-Restablecer orden original.(guardar array original)
-
-Ejercicio 8: Buscador de Presupuestos
-
-Input de búsqueda en el listado.
-
-Filtrar presupuestos que coincidan con el texto (nombre o cliente).
-
-Ejercicio 9: Descuento Anual (20%)
-
-Checkbox/botón "Presupuesto Anual".
-
-Aplicar 20% de descuento al total.
-
-Mostrar visualmente que el descuento está activo.
-
-Nivel 3
-Ejercicio 10: Compartir URL con Parámetros
-
-Usar useSearchParams (React Router) para:
-
-Almacenar opciones en la URL (?SEO=true&pages=3).
-
-Cargar opciones al acceder a la URL.
-
-Ejemplo de URL:
-http://localhost:3000/calculator?SEO=true&Web=true&pages=2&lang=1.
-
-Extras Recomendados
-Validar inputs (ej. páginas ≥ 1).
-
-Diseño responsive (Tailwind/CSS).
-
-Animaciones suaves (ej. cambios de precio).
-
-Tests básicos (Jest/Vitest).
+Add smooth page transitions and animations to improve user experience — although for now, my priority is mastering React before diving into more advanced visual polish.
