@@ -8,11 +8,11 @@ type CardProps = {
   description: string;
   price: string | number;
   handleClick: (event: any) => void;
-  esEspesial?: boolean;
-  paginas?: number;
-  llenguatges?: number;
-  setPaginas?: (val: number) => void;
-  setLlenguatges?: (val: number) => void;
+  isSpecial?: boolean;
+  pages?: number;
+  language?: number;
+  setPages?: (val: number) => void;
+  setLanguage?: (val: number) => void;
   selected: boolean;
   hasDiscount?: boolean;
 };
@@ -61,7 +61,7 @@ const Card = (props: CardProps) => {
             </label>
           </div>
 
-          {props.esEspesial && (
+          {props.isSpecial && (
             <div className="space-y-4 ">
               <div className="flex items-center gap-2">
                 <button
@@ -78,27 +78,27 @@ const Card = (props: CardProps) => {
                 </button>
                 <p className="text-sm w-20">Pàgines</p>
                 <InputNumber
-                  value={props.paginas || 0}
-                  onChange={props.setPaginas!}
+                  value={props.pages || 0}
+                  onChange={props.setPages!}
                 />
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() =>
                     handlePopup(
-                      "Número de llenguatges",
-                      "Afegeix els llenguatges del teu projecte, cadascu tindra un preu de 30€"
+                      "Número de language",
+                      "Afegeix els language del teu projecte, cadascu tindra un preu de 30€"
                     )
                   }
                   className=" hover:text-blue-500"
-                  aria-label="Mostrar info llenguatges"
+                  aria-label="Mostrar info language"
                 >
                   <FiInfo className="inline mr-1" />
                 </button>
-                <p className="text-sm w-20">Llenguatges</p>
+                <p className="text-sm w-20">language</p>
                 <InputNumber
-                  value={props.llenguatges || 0}
-                  onChange={props.setLlenguatges!}
+                  value={props.language || 0}
+                  onChange={props.setLanguage!}
                 />
               </div>
             </div>

@@ -42,13 +42,13 @@ const Header = () => {
 
           <div className="flex gap-3">
             <Link
-              to="/login"
+              to="/"
               className="px-4 py-2 rounded-full bg-blue-600 w-28 text-center text-white hover:bg-blue-700 transition"
             >
               Login
             </Link>
             <Link
-              to="/signup"
+              to="/"
               className="px-4 py-2 rounded-full border border-blue-600 w-28 text-center text-blue-600 dark:text-white hover:bg-blue-600 hover:text-white transition"
             >
               Sign Up

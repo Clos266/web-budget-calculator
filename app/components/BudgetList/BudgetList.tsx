@@ -3,6 +3,8 @@ import {
   FiDollarSign,
   FiRefreshCcw,
   FiSearch,
+  FiArrowDown,
+  FiArrowUp,
 } from "react-icons/fi";
 import BudgetCard from "../BudgetCard/BudgetCard";
 import type { SavedBudget } from "~/types/SavedBudget";
@@ -14,7 +16,7 @@ const fakeBudgets = [
     total: 1260,
     formData: {
       name: "Pedro Piedras",
-      telefon: "12345643424",
+      phone: "12345643424",
       email: "pedro@piedras.com",
     },
     selectedServices: {
@@ -22,15 +24,15 @@ const fakeBudgets = [
       ads: true,
       web: true,
     },
-    paginas: 1,
-    llenguatges: 1,
-    date: "2025-07-18T14:29:34.697Z",
+    pages: 1,
+    language: 1,
+    date: "2023-07-18T14:29:34.697Z",
   },
   {
     total: 22222,
     formData: {
       name: "Ramon Jamon",
-      telefon: "12345643424",
+      phone: "12345643424",
       email: "Ramon@jam.on",
     },
     selectedServices: {
@@ -38,15 +40,15 @@ const fakeBudgets = [
       ads: false,
       web: false,
     },
-    paginas: 2,
-    llenguatges: 1,
+    pages: 2,
+    language: 1,
     date: "2025-07-17T14:29:54.665Z",
   },
   {
     total: 9,
     formData: {
       name: "Sup Sup",
-      telefon: "12345643424",
+      phone: "12345643424",
       email: "sup@su.p",
     },
     selectedServices: {
@@ -54,26 +56,23 @@ const fakeBudgets = [
       ads: true,
       web: true,
     },
-    paginas: 0,
-    llenguatges: 10,
-    date: "2025-07-16T14:30:10.005Z",
+    pages: 0,
+    language: 10,
+    date: "2024-07-16T14:30:10.005Z",
   },
 ];
 
 const BudgetList = ({ budgets }: Props) => {
-  // const finalBudget = [...budgets, ...fakeBudgets];
-  // const [sortedBudgets, setSortedBudgets] = useState(finalBudget);
-
   const finalBudget = useMemo(() => [...budgets, ...fakeBudgets], [budgets]);
 
   const [sortedBudgets, setSortedBudgets] = useState<SavedBudget[]>([]);
   const [search, setSearch] = useState("");
+  const [isDateAsc, setIsDateAsc] = useState(false);
+  const [isPriceAsc, setIsPriceAsc] = useState(false);
 
   useEffect(() => {
     setSortedBudgets(finalBudget);
   }, [finalBudget]);
-
-  ////////bloque de filtros de busqueda
 
   const searcher = (e: { target: { value: any } }) => {
     const searchTerm = e.target.value;
@@ -93,19 +92,27 @@ const BudgetList = ({ budgets }: Props) => {
     }
   };
 
-  //////bloke filtro por precio.. falta imprimir....
-
   const sortByPrice = () => {
-    const sorted = [...sortedBudgets].sort((a, b) => a.total - b.total);
+    const sorted = [...sortedBudgets].sort((a, b) => {
+      const totalA = a.total;
+      const totalB = b.total;
+      return isPriceAsc ? totalA - totalB : totalB - totalA;
+    });
+
     setSortedBudgets(sorted);
+    setIsPriceAsc(!isPriceAsc);
   };
 
-  ////bloque filtro por fecha... se viene lio liote
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // console.log("<<le click", e.target.value);
-  };
+  const sortByDate = () => {
+    const sorted = [...sortedBudgets].sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return isDateAsc ? dateA - dateB : dateB - dateA;
+    });
 
-  ///bloque del reset
+    setSortedBudgets(sorted);
+    setIsDateAsc(!isDateAsc);
+  };
 
   const reset = () => {
     setSortedBudgets(finalBudget);
@@ -134,19 +141,18 @@ const BudgetList = ({ budgets }: Props) => {
 
         <div className="flex gap-2 h-9 flex-wrap justify-center sm:justify-start w-full sm:w-auto">
           <button
-            onClick={handleClick}
-            value={"jejejeje"}
+            onClick={sortByDate}
             className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center"
           >
             <FiCalendar className="inline mr-1" />
-            Data
+            Data {isDateAsc ? <FiArrowUp /> : <FiArrowDown />}
           </button>
           <button
             onClick={sortByPrice}
             className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition flex items-center justify-center"
           >
-            <FiDollarSign className="inline mr-1" />
-            Import
+            <FiCalendar className="inline mr-1" />
+            Import {isPriceAsc ? <FiArrowUp /> : <FiArrowDown />}
           </button>
           <button
             onClick={reset}
@@ -158,20 +164,18 @@ const BudgetList = ({ budgets }: Props) => {
       </div>
 
       {sortedBudgets.map((budget, index) => {
-        console.log("^^budgets array", budgets);
-        console.log("^^fakebudgets", fakeBudgets);
         return (
           <BudgetCard
             key={index}
             name={budget.formData.name || ""}
             email={budget.formData.email || ""}
-            phone={budget.formData.telefon || ""}
+            phone={budget.formData.phone || ""}
             seo={budget.selectedServices.seo}
             ads={budget.selectedServices.ads}
             web={budget.selectedServices.web}
             total={budget.total}
-            paginas={budget.paginas}
-            llenguatges={budget.llenguatges}
+            pages={budget.pages}
+            language={budget.language}
             date={budget.date}
           />
         );

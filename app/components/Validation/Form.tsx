@@ -9,7 +9,6 @@ const Form = ({ onSubmitForm }: FormProps) => {
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log("^^data", data);
     onSubmitForm(data);
   });
 
@@ -40,7 +39,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
               />
               <InputValidation
                 type="Number"
-                id="telefon"
+                id="phone"
                 placeholder="Telèfon"
                 validation={{
                   required: {

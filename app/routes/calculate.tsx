@@ -13,8 +13,8 @@ export default function Calculate() {
   const webPrice = 500;
 
   const [total, setTotal] = useState(0);
-  const [numPaginas, setNumPaginas] = useState(0);
-  const [numLlenguatges, setNumLlenguatges] = useState(0);
+  const [numpages, setNumpages] = useState(0);
+  const [numlanguage, setNumlanguage] = useState(0);
   const [formData, setFormData] = useState({});
   const [selectedServices, setSelectedServices] = useState({
     seo: false,
@@ -30,30 +30,29 @@ export default function Calculate() {
       total,
       formData: data,
       selectedServices,
-      paginas: numPaginas,
-      llenguatges: numLlenguatges,
+      pages: numpages,
+      language: numlanguage,
       date: new Date().toISOString(),
     };
     setBudgets((prev) => [...prev, newBudget]);
 
     setSelectedServices({ seo: false, ads: false, web: false });
-    setNumPaginas(0);
-    setNumLlenguatges(0);
+    setNumpages(0);
+    setNumlanguage(0);
     setTotal(0);
   };
 
-  //////
   const calculateTotal = (
     services: any,
-    paginas: number,
-    llenguatges: number,
+    pages: number,
+    language: number,
     discount: boolean
   ) => {
     const base =
       (services.seo ? seoPrice : 0) +
       (services.ads ? adsPrice : 0) +
       (services.web ? webPrice : 0);
-    const extras = services.web ? (paginas + llenguatges) * 30 : 0;
+    const extras = services.web ? (pages + language) * 30 : 0;
     const total = base + extras;
     return discount ? total * 0.8 : total;
   };
@@ -61,12 +60,12 @@ export default function Calculate() {
   useEffect(() => {
     const newTotal = calculateTotal(
       selectedServices,
-      numPaginas,
-      numLlenguatges,
+      numpages,
+      numlanguage,
       hasDisount
     );
     setTotal(newTotal);
-  }, [selectedServices, numPaginas, numLlenguatges, hasDisount]);
+  }, [selectedServices, numpages, numlanguage, hasDisount]);
 
   const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
@@ -131,11 +130,11 @@ export default function Calculate() {
               description="Disseny i desenvolupament de pàgines web personalitzades."
               price={hasDisount ? webPrice * 0.8 : webPrice}
               handleClick={handleClick}
-              esEspesial={true}
-              paginas={numPaginas}
-              llenguatges={numLlenguatges}
-              setPaginas={setNumPaginas}
-              setLlenguatges={setNumLlenguatges}
+              isSpecial={true}
+              pages={numpages}
+              language={numlanguage}
+              setPages={setNumpages}
+              setLanguage={setNumlanguage}
               selected={selectedServices.web}
               hasDiscount={hasDisount}
             />

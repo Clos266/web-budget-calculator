@@ -4,14 +4,14 @@ export type SavedBudget = {
   formData: {
     name: string;
     email?: string;
-    telefon?: string;
+    phone?: string;
   };
   selectedServices: {
     seo: boolean;
     ads: boolean;
     web: boolean;
   };
-  paginas?: number;
-  llenguatges?: number;
+  pages?: number;
+  language?: number;
   date: string;
 };
