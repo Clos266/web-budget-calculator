@@ -41,7 +41,7 @@ $ npm run dev
 
 - Implement testing. While I’m still solidifying core concepts, adding tests is a priority to ensure long-term maintainability and reliability.
 
-- Unify language usage. Some parts of the project currently contain Spanglish or Catanglish — I plan to standardize all content in English.
+- Add multilingual support. The app currently displays content only in Catalan — I plan to implement internationalization so it can be viewed in multiple languages.
 
 - Refactor folder structure. Being my second React project and the first using React Router, the architecture evolved during development. A cleaner structure will improve clarity.
 
