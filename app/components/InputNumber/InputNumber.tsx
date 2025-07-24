@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 type InputNumberProps = {
   value: number;
   onChange: (newValue: number) => void;
