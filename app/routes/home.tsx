@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
-import moon from "../components/assets/moon.svg";
+import moon from "../assets/moon.svg";
 import { SITE_NAME } from "~/constants/site";
 
 export default function Home() {
