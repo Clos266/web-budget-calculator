@@ -17,7 +17,7 @@ type CardProps = {
   hasDiscount?: boolean;
 };
 
-const Card = (props: CardProps) => {
+const PricingCard = (props: CardProps) => {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupDescription, setPopupDescription] = useState("");
@@ -116,4 +116,4 @@ const Card = (props: CardProps) => {
   );
 };
 
-export default Card;
+export default PricingCard;

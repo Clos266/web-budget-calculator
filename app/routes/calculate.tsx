@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "~/components/Cards/Card";
+import PricingCard from "~/components/Cards/PricingCard";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";
@@ -106,7 +106,7 @@ export default function Calculate() {
             <span className="text-sm text-gray-700">Pagament anual</span>
           </div>
           <section className="space-y-6">
-            <Card
+            <PricingCard
               title="Seo"
               name="seo"
               description="Optimització per a motors de cerca per millorar la visibilitat."
@@ -115,7 +115,7 @@ export default function Calculate() {
               selected={selectedServices.seo}
               hasDiscount={hasDiscount}
             />
-            <Card
+            <PricingCard
               title="Ads"
               name="ads"
               description="Gestió de campanyes publicitàries per arribar al teu públic objectiu."
@@ -124,7 +124,7 @@ export default function Calculate() {
               selected={selectedServices.ads}
               hasDiscount={hasDiscount}
             />
-            <Card
+            <PricingCard
               title="Web"
               name="web"
               description="Disseny i desenvolupament de pàgines web personalitzades."
