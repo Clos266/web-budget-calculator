@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import moon from "../components/assets/moon.svg";
+import { SITE_NAME } from "~/constants/site";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           alt="imatge de persona calculant pressupostos"
           className="w-full max-w-sm mx-auto"
         />
-        <h1 className="text-4xl font-bold mb-4">Benvingut a Pressuposta</h1>
+        <h1 className="text-4xl font-bold mb-4">Benvingut a {SITE_NAME}</h1>
         <p className="mb-8 text-gray-500 text-lg max-w-md">
           Estàs a un pas de crear pressupostos digitals personalitzats per la
           teva web i serveis online, de manera fàcil i ràpida.

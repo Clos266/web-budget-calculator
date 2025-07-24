@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
-import { navLinks } from "~/data/navigation";
+import { navLinks } from "~/constants/navigation";
+import { loginButtons } from "~/data/loginButtons";
+import { SITE_NAME } from "~/constants/site";
 
 const Header = () => {
   return (
@@ -9,7 +11,11 @@ const Header = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
         <h1 className="flex items-center">
           <Link to="/">
-            <img src={logo} alt="Logotip Pressuposta" className="w-48 h-auto" />
+            <img
+              src={logo}
+              alt={`Logo of ${SITE_NAME}`}
+              className="w-48 h-auto"
+            />
           </Link>
         </h1>
 
@@ -29,16 +35,16 @@ const Header = () => {
 
           <div className="flex gap-3">
             <Link
-              to="/"
+              to={loginButtons.login.path}
               className="px-4 py-2 rounded-full bg-blue-600 w-28 text-center text-white hover:bg-blue-700 transition"
             >
-              Login
+              {loginButtons.login.label}
             </Link>
             <Link
-              to="/"
+              to={loginButtons.signup.path}
               className="px-4 py-2 rounded-full border border-blue-600 w-28 text-center text-blue-600 dark:text-white hover:bg-blue-600 hover:text-white transition"
             >
-              Sign Up
+              {loginButtons.signup.label}
             </Link>
           </div>
         </nav>

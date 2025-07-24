@@ -1,5 +1,6 @@
 import InputValidation from "./InputValidation";
 import { useForm, FormProvider } from "react-hook-form";
+import { SITE_NAME } from "~/constants/site";
 
 interface FormProps {
   onSubmitForm: (data: any) => void;
@@ -73,7 +74,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
               className="bg-blue-600 text-white py-3 px-5 rounded flex items-center justify-center gap-2 hover:bg-blue-700 transition duration-300"
               type="submit"
             >
-              Pressuposta➔
+              ${SITE_NAME}➔
             </button>
           </div>
         </div>
