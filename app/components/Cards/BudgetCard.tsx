@@ -1,4 +1,4 @@
-import type { BudgetCardProps } from "~/types/BudgetCardProps";
+import type { BudgetPricingCardProps } from "~/types/BudgetCardProps";
 import { formatDate } from "~/utils/format";
 import { getServiceTags } from "~/utils/services";
 import { budgetCardText } from "~/i18n/ca/budgetCardText";
@@ -14,7 +14,7 @@ const BudgetCard = ({
   language,
   date,
   total,
-}: BudgetCardProps) => {
+}: BudgetPricingCardProps) => {
   const serviceTags = getServiceTags({ seo, ads, web, pages, language });
 
   return (

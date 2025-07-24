@@ -1,4 +1,4 @@
-export type BudgetCardProps = {
+export type BudgetPricingCardProps = {
   name: string;
   email: string;
   phone: string | number;

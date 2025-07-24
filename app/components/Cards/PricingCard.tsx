@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import InputNumber from "../InputNumber/InputNumber";
 import Popup from "../PopUp/PopUp";
 import { FiInfo } from "react-icons/fi";
-type CardProps = {
+import { serviceCardText } from "~/i18n/ca/serviceCardText";
+
+type ServiceCardProps = {
   name: string;
   title: string;
   description: string;
@@ -17,7 +19,7 @@ type CardProps = {
   hasDiscount?: boolean;
 };
 
-const PricingCard = (props: CardProps) => {
+const ServiceCard = (props: ServiceCardProps) => {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupDescription, setPopupDescription] = useState("");
@@ -32,7 +34,7 @@ const PricingCard = (props: CardProps) => {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 p-6 mb-8">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
         <div className="flex flex-col flex-1">
-          <h3 className="text-xl sm:text-2xl font-semibold ">{props.title}</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold">{props.title}</h3>
           <h4 className="text-base sm:text-lg text-gray-500 font-medium mt-2">
             {props.description}
           </h4>
@@ -40,7 +42,9 @@ const PricingCard = (props: CardProps) => {
 
         <div className="flex flex-col items-center justify-center flex-1 mt-4 sm:mt-0 text-center">
           {props.hasDiscount && (
-            <div className="text-sm text-red-400 opacity-80 mb-1">20% off</div>
+            <div className="text-sm text-red-400 opacity-80 mb-1">
+              {serviceCardText.discount}
+            </div>
           )}
           <h6 className="text-2xl font-bold">{props.price}€</h6>
         </div>
@@ -56,19 +60,19 @@ const PricingCard = (props: CardProps) => {
               onChange={props.handleClick}
               checked={props.selected}
             />
-            <label className="text-sm  font-medium" htmlFor="checkboxDefault">
-              afegir
+            <label className="text-sm font-medium" htmlFor="checkboxDefault">
+              {serviceCardText.add}
             </label>
           </div>
 
           {props.isSpecial && (
-            <div className="space-y-4 ">
+            <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <button
                   onClick={() =>
                     handlePopup(
-                      "Número de pàgines",
-                      "Afegeix les pàgines del teu projecte, cadascuna tindra un preu de 30€"
+                      serviceCardText.popupPages.title,
+                      serviceCardText.popupPages.description
                     )
                   }
                   className="hover:text-blue-500"
@@ -76,7 +80,7 @@ const PricingCard = (props: CardProps) => {
                 >
                   <FiInfo className="inline mr-1" />
                 </button>
-                <p className="text-sm w-20">Pàgines</p>
+                <p className="text-sm w-20">{serviceCardText.pages}</p>
                 <InputNumber
                   value={props.pages || 0}
                   onChange={props.setPages!}
@@ -86,16 +90,16 @@ const PricingCard = (props: CardProps) => {
                 <button
                   onClick={() =>
                     handlePopup(
-                      "Número de language",
-                      "Afegeix els language del teu projecte, cadascu tindra un preu de 30€"
+                      serviceCardText.popupLanguages.title,
+                      serviceCardText.popupLanguages.description
                     )
                   }
-                  className=" hover:text-blue-500"
-                  aria-label="Mostrar info language"
+                  className="hover:text-blue-500"
+                  aria-label="More info"
                 >
                   <FiInfo className="inline mr-1" />
                 </button>
-                <p className="text-sm w-20">language</p>
+                <p className="text-sm w-20">{serviceCardText.languages}</p>
                 <InputNumber
                   value={props.language || 0}
                   onChange={props.setLanguage!}
@@ -116,4 +120,4 @@ const PricingCard = (props: CardProps) => {
   );
 };
 
-export default PricingCard;
+export default ServiceCard;
