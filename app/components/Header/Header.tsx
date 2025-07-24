@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "app/assets/logo.svg";
-import { navLinks } from "~/constants/navigation";
+import { navLinks } from "~/i18n/ca/navigation";
 import { loginButtons } from "~/data/loginButtons";
 import { SITE_NAME } from "~/constants/site";
 
