@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import Calculate from "~/routes/calculate";
 import type { BudgetCardProps } from "~/types/BudgetCardProps";
 
 const BudgetCard = (props: BudgetCardProps) => {

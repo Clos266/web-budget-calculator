@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { navLinks } from "~/data/navigation";
 
 const Header = () => {
   return (
@@ -14,30 +15,16 @@ const Header = () => {
 
         <nav className="flex flex-wrap items-center gap-6 hidden md:flex ">
           <ul className="flex gap-6">
-            <li>
-              <Link
-                to="/"
-                className="text-blue-600 dark:text-white hover:underline hover:text-blue-800 dark:hover:text-blue-400 transition"
-              >
-                Com funciona
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="text-blue-600 dark:text-white hover:underline hover:text-blue-800 dark:hover:text-blue-400 transition"
-              >
-                Què obtens
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/calculate"
-                className="text-blue-600 dark:text-white hover:underline hover:text-blue-800 dark:hover:text-blue-400 transition"
-              >
-                Començar amb Pressuposta
-              </Link>
-            </li>
+            {navLinks.map(({ path, label }) => (
+              <li key={label}>
+                <Link
+                  to={path}
+                  className="text-blue-600 dark:text-white hover:underline hover:text-blue-800 dark:hover:text-blue-400 transition"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <div className="flex gap-3">
