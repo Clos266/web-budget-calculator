@@ -21,7 +21,7 @@ export default function Calculate() {
     ads: false,
     web: false,
   });
-  const [hasDisount, setHasDiscount] = useState(false);
+  const [hasDiscount, setHasDiscount] = useState(false);
 
   const handleFormSubmit = (data: any) => {
     setFormData(data);
@@ -62,10 +62,10 @@ export default function Calculate() {
       selectedServices,
       numpages,
       numlanguage,
-      hasDisount
+      hasDiscount
     );
     setTotal(newTotal);
-  }, [selectedServices, numpages, numlanguage, hasDisount]);
+  }, [selectedServices, numpages, numlanguage, hasDiscount]);
 
   const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
@@ -98,7 +98,7 @@ export default function Calculate() {
                 type="checkbox"
                 className="sr-only peer"
                 onChange={discount}
-                checked={hasDisount}
+                checked={hasDiscount}
               />
               <div className="w-10 h-5 bg-gray-300 dark:bg-gray-700 rounded-full peer-checked:bg-blue-600 transition-colors duration-200"></div>
               <div className="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-5 transition-transform duration-200"></div>
@@ -110,25 +110,25 @@ export default function Calculate() {
               title="Seo"
               name="seo"
               description="Optimització per a motors de cerca per millorar la visibilitat."
-              price={hasDisount ? seoPrice * 0.8 : seoPrice}
+              price={hasDiscount ? seoPrice * 0.8 : seoPrice}
               handleClick={handleClick}
               selected={selectedServices.seo}
-              hasDiscount={hasDisount}
+              hasDiscount={hasDiscount}
             />
             <Card
               title="Ads"
               name="ads"
               description="Gestió de campanyes publicitàries per arribar al teu públic objectiu."
-              price={hasDisount ? adsPrice * 0.8 : adsPrice}
+              price={hasDiscount ? adsPrice * 0.8 : adsPrice}
               handleClick={handleClick}
               selected={selectedServices.ads}
-              hasDiscount={hasDisount}
+              hasDiscount={hasDiscount}
             />
             <Card
               title="Web"
               name="web"
               description="Disseny i desenvolupament de pàgines web personalitzades."
-              price={hasDisount ? webPrice * 0.8 : webPrice}
+              price={hasDiscount ? webPrice * 0.8 : webPrice}
               handleClick={handleClick}
               isSpecial={true}
               pages={numpages}
@@ -136,7 +136,7 @@ export default function Calculate() {
               setPages={setNumpages}
               setLanguage={setNumlanguage}
               selected={selectedServices.web}
-              hasDiscount={hasDisount}
+              hasDiscount={hasDiscount}
             />
             <p className="text-center font-semibold text-lg ">
               Preu total: {total} €
