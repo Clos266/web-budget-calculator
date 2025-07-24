@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 type PopupProps = {
   isOpen: boolean;
@@ -11,18 +11,32 @@ type PopupProps = {
 const Popup = ({
   isOpen,
   onClose,
-  title = "Información adicional",
-  description = "description default",
+  title,
+  description,
   children,
 }: PopupProps) => {
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center z-50 ">
-      <div className="bg-white p-4 rounded-md max-w-xs w-full shadow-lg text-black relative">
-        <p className="mb-3 font-semibold text-black">{title}</p>
-        <p className="mb-3">{description}</p>
-        <div className="mb-3">{children}</div>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50"
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white p-6 rounded-md max-w-sm w-full shadow-lg text-black relative animate-fadeIn"
+        onClick={(e) => e.stopPropagation()} //
+      >
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-xl font-bold"
@@ -30,6 +44,9 @@ const Popup = ({
         >
           ×
         </button>
+        <p className="mb-2 font-semibold text-lg">{title}</p>
+        <p className="mb-3 text-sm text-gray-700">{description}</p>
+        {children && <div className="mt-2">{children}</div>}
       </div>
     </div>
   );
