@@ -1,18 +1,6 @@
 import React, { useState } from "react";
 import Calculate from "~/routes/calculate";
-
-type BudgetCardProps = {
-  name: string;
-  email: string;
-  phone: string | number;
-  seo?: boolean;
-  ads?: boolean;
-  web?: boolean;
-  total: string | number;
-  pages?: number;
-  language?: number;
-  date: string;
-};
+import type { BudgetCardProps } from "~/types/BudgetCardProps";
 
 const BudgetCard = (props: BudgetCardProps) => {
   return (

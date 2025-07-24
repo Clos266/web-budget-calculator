@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "~/components/Card/Card";
+import Card from "~/components/Cards/Card";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 import Form from "~/components/Validation/Form";

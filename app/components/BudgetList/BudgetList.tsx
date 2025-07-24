@@ -6,7 +6,7 @@ import {
   FiArrowDown,
   FiArrowUp,
 } from "react-icons/fi";
-import BudgetCard from "../BudgetCard/BudgetCard";
+import BudgetCard from "../Cards/BudgetCard";
 import type { SavedBudget } from "~/types/SavedBudget";
 import React, { useEffect, useState, useMemo } from "react";
 
