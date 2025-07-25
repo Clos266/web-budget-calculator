@@ -42,8 +42,8 @@ const BudgetList = ({ budgets }: Props) => {
           onClick={resetFilters}
           className="btn-secondary flex items-center gap-2"
         >
-          <FiRefreshCcw />
           {budgetListText.buttons.reset}
+          <FiRefreshCcw />
         </button>
       </div>
 
