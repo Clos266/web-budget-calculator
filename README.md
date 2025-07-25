@@ -6,13 +6,13 @@ This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to dee
 
 🚀 Technologies Used
 
-React (with TypeScript)
+- React (with TypeScript)
 
-React Router
+- React Router
 
-Vite
+- Vite
 
-Tailwind CSS
+- Tailwind CSS
 
 📌 Project Status
 The MVP is complete and fully functional, except for the last exercise, which I couldn’t finish due to time constraints. Below is the timeline for this sprint: Sprint End Planned: 18-07-2025
@@ -38,12 +38,15 @@ $ npm run dev
 ```
 
 📈 Future Improvements
-Add tests (though I haven’t fully mastered the basics yet, so I’m not sure how to approach testing at this stage).
 
-Refactor all text content to be consistently in English (currently there's some Spanglish/Catanglish).
+- Implement testing. While I’m still solidifying core concepts, adding tests is a priority to ensure long-term maintainability and reliability.
 
-Improve folder structure — this is my second React project and my first one using React Router, so things got a bit messy.
+- Add multilingual support. The app currently displays content only in Catalan — I plan to implement internationalization so it can be viewed in multiple languages.
 
-Split large files that contain too much logic or too many responsibilities.
+- Refactor folder structure. Being my second React project and the first using React Router, the architecture evolved during development. A cleaner structure will improve clarity.
 
-Add smooth page transitions and animations to improve user experience — although for now, my priority is mastering React before diving into more advanced visual polish.
+- Split complex components. Several files handle too many responsibilities; I’ll divide them into smaller, more focused units.
+
+- Add smooth animations. Improving transitions and interactivity is on the roadmap, once the core functionality is solid.
+
+- Enable budget sharing via URL. One of the final goals is to allow users to share a fully pre-filled budget via URL parameters. This enhances usability and supports real-world use cases, like sharing recommendations with others.
