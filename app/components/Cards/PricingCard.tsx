@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import InputNumber from "../InputNumber/InputNumber";
 import Popup from "../PopUp/PopUp";
 import { FiInfo } from "react-icons/fi";
-import { serviceCardText } from "~/i18n/ca/serviceCardText";
+import { useTexts } from "~/i18n";
 
 type ServiceCardProps = {
   name: string;
@@ -29,7 +29,7 @@ const ServiceCard = (props: ServiceCardProps) => {
     setPopupDescription(description);
     setPopupTitle(title);
   };
-
+  const { serviceCardText } = useTexts();
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 p-6 mb-8">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
