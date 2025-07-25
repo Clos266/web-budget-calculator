@@ -2,7 +2,6 @@ import BudgetCard from "../Cards/BudgetCard";
 import { useBudgets } from "~/hooks/useBudgets";
 import type { SavedBudget } from "~/types/SavedBudget";
 import { useTexts } from "~/i18n";
-import { budgetListText } from "~/i18n/ca/budgetListText";
 import { FiRefreshCcw } from "react-icons/fi";
 
 type Props = { budgets: SavedBudget[] };

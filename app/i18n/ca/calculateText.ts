@@ -1,9 +1,12 @@
-import { SEO_PRICE, ADS_PRICE, WEB_PRICE } from "~/constants/prices";
-
 export const calculateText = {
   toggle: {
-    monthly: "Pagament mensual",
-    yearly: "Pagament anual",
+    monthly: "Monthly",
+    yearly: "Yearly",
   },
-  total: (price: number) => `Preu total: ${price} €`,
+  total: (price: number) => `Total: ${price}€`,
+  services: {
+    seo: "Optimització per a motors de cerca per millorar la visibilitat.",
+    ads: "Gestió de campanyes publicitàries per arribar al teu públic objectiu.",
+    web: "Disseny i desenvolupament de pàgines web personalitzades.",
+  },
 };

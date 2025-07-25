@@ -14,6 +14,9 @@ import { budgetCardText as budgetCardTextEN } from "./en/budgetCardText";
 import { budgetCardText as budgetCardTextCA } from "./ca/budgetCardText";
 import { serviceCardText as serviceCardTextEN } from "./en/serviceCardText";
 import { serviceCardText as serviceCardTextCA } from "./ca/serviceCardText";
+import { servicesText as servicesTextEN } from "./en/servicesText";
+import { servicesText as servicesTextCA } from "./ca/servicesText";
+
 import { useLanguage } from "./LanguageContext";
 
 export function useTexts() {
@@ -30,6 +33,7 @@ export function useTexts() {
     language === "en" ? budgetCardTextEN : budgetCardTextCA;
   const serviceCardText =
     language === "en" ? serviceCardTextEN : serviceCardTextCA;
+  const servicesText = language === "en" ? servicesTextEN : servicesTextCA;
 
   return {
     homeText,
@@ -40,5 +44,6 @@ export function useTexts() {
     navigation,
     formText,
     budgetListText,
+    servicesText,
   };
 }

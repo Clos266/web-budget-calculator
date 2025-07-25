@@ -1,9 +1,12 @@
-import { SEO_PRICE, ADS_PRICE, WEB_PRICE } from "~/constants/prices";
-
 export const calculateText = {
   toggle: {
-    monthly: "Monthly payment",
-    yearly: "Yearly payment",
+    monthly: "Monthly",
+    yearly: "Yearly",
   },
-  total: (price: number) => `Total price: ${price} €`,
+  total: (price: number) => `Total: $${price}`,
+  services: {
+    seo: "Search engine optimization to improve visibility.",
+    ads: "Advertising campaign management to reach your target audience.",
+    web: "Custom web design and development.",
+  },
 };

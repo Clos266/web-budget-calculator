@@ -54,7 +54,11 @@ export default function CalculatorSection({
             key={service.name}
             title={service.title}
             name={service.name}
-            description={service.description}
+            description={
+              calculateText.services[
+                service.name as keyof typeof calculateText.services
+              ]
+            }
             price={hasDiscount ? service.price * 0.8 : service.price}
             handleClick={handleClick}
             selected={selectedServices[service.name]}
