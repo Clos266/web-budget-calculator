@@ -1,4 +1,4 @@
-import { useLanguage } from "~/i18n/LanguageContext";
+import { useLanguage } from "~/hooks/useLanguague";
 
 export default function LanguageSwitcher() {
   const { language, toggleLanguage } = useLanguage();

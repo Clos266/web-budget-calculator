@@ -1,7 +1,7 @@
 export const calculateText = {
   toggle: {
-    monthly: "Monthly",
-    yearly: "Yearly",
+    monthly: "Mensual",
+    yearly: "Anual",
   },
   total: (price: number) => `Total: ${price}€`,
   services: {

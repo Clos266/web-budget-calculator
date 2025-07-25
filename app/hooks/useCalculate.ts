@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+// 📁 hooks/useCalculate.ts
+import { useBudgetManager } from "./useBudgetManager";
+import { useCalculatorForm } from "./useCalculatorForm";
+import { useDiscountToggle } from "./useDiscountToggle";
 import type { SavedBudget } from "~/types/SavedBudget";
-import { calculateTotal } from "~/utils/calculateTotal";
 
-export const useCalculate = () => {
-  const [budgets, setBudgets] = useState<SavedBudget[]>([]);
-  const [selectedServices, setSelectedServices] = useState({
-    seo: false,
-    ads: false,
-    web: false,
-  });
-  const [hasDiscount, setHasDiscount] = useState(false);
-  const [numpages, setNumpages] = useState(0);
-  const [numlanguage, setNumlanguage] = useState(0);
-  const [formData, setFormData] = useState({});
-  const [total, setTotal] = useState(0);
+export function useCalculate() {
+  const { hasDiscount, toggleDiscount } = useDiscountToggle();
+  const {
+    selectedServices,
+    handleClick,
+    numpages,
+    setNumpages,
+    numlanguage,
+    setNumlanguage,
+    total,
+  } = useCalculatorForm(hasDiscount);
+
+  const { budgets, addBudget } = useBudgetManager();
 
   const handleFormSubmit = (data: any) => {
-    setFormData(data);
     const newBudget: SavedBudget = {
       total,
       formData: data,
@@ -25,32 +27,18 @@ export const useCalculate = () => {
       language: numlanguage,
       date: new Date().toISOString(),
     };
-    setBudgets((prev) => [...prev, newBudget]);
 
-    setSelectedServices({ seo: false, ads: false, web: false });
+    addBudget(newBudget);
+
     setNumpages(0);
     setNumlanguage(0);
-    setTotal(0);
-  };
 
-  const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.target;
-    setSelectedServices((prev) => ({ ...prev, [name]: checked }));
+    Object.keys(selectedServices).forEach((key) => {
+      handleClick({
+        target: { name: key, checked: false },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
   };
-
-  const toggleDiscount = (checked: boolean) => {
-    setHasDiscount(checked);
-  };
-
-  useEffect(() => {
-    const newTotal = calculateTotal(
-      selectedServices,
-      numpages,
-      numlanguage,
-      hasDiscount
-    );
-    setTotal(newTotal);
-  }, [selectedServices, numpages, numlanguage, hasDiscount]);
 
   return {
     budgets,
@@ -65,4 +53,4 @@ export const useCalculate = () => {
     setNumpages,
     setNumlanguage,
   };
-};
+}

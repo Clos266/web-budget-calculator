@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import { LanguageProvider } from "~/i18n/LanguageContext";
+import { LanguageProvider } from "~/hooks/useLanguague";
 import type { Route } from "./+types/root";
 import type { ReactNode } from "react";
 import "./styles/app.css";

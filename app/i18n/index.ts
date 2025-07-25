@@ -17,7 +17,7 @@ import { serviceCardText as serviceCardTextCA } from "./ca/serviceCardText";
 import { servicesText as servicesTextEN } from "./en/servicesText";
 import { servicesText as servicesTextCA } from "./ca/servicesText";
 
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "../hooks/useLanguague";
 
 export function useTexts() {
   const { language } = useLanguage();
