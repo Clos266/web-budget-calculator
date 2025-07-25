@@ -3,6 +3,7 @@ import logo from "app/assets/logo.svg";
 import { navLinks } from "~/i18n/ca/navigation";
 import { loginButtons } from "~/data/loginButtons";
 import { SITE_NAME } from "~/constants/site";
+import LanguageSwitcher from "~/components/LanguageSwitcher/LanguageSwitcher";
 
 const Header = () => {
   return (
@@ -31,7 +32,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
-
+          <LanguageSwitcher />
           <div className="flex gap-3">
             <Link
               to={loginButtons.login.path}

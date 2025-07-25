@@ -1,9 +1,11 @@
-import { homeText } from "~/i18n/ca/homeText";
 import { SITE_NAME } from "~/constants/site";
 import { Link } from "react-router-dom";
 import moon from "~/assets/moon.svg";
+import { useTexts } from "~/i18n";
 
 export function HeroSection() {
+  const { homeText } = useTexts();
+
   return (
     <section
       className="

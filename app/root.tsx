@@ -7,7 +7,9 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { LanguageProvider } from "~/i18n/LanguageContext";
 import type { Route } from "./+types/root";
+import type { ReactNode } from "react";
 import "./styles/app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -23,9 +25,9 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ca">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,8 +43,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Aquí aplicamos el Provider alrededor del Outlet (árbol de React)
 export default function App() {
-  return <Outlet />;
+  return (
+    <LanguageProvider>
+      <Outlet />
+    </LanguageProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -56,7 +63,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       error.status === 404
         ? "The requested page could not be found."
         : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
+  } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
     stack = error.stack;
   }

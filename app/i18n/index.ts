@@ -1,9 +1,14 @@
-import { homeText as homeCA } from "./ca/homeText";
-import { calculateText as calculateCA } from "./ca/calculateText";
-import { homeText as homeEN } from "./en/homeText";
-import { calculateText as calculateEN } from "./en/calculateText";
+import { homeText as homeTextEN } from "./en/homeText";
+import { homeText as homeTextCA } from "./ca/homeText";
+import { calculateText as calculateTextEN } from "./en/calculateText";
+import { calculateText as calculateTextCA } from "./ca/calculateText";
+import { useLanguage } from "./LanguageContext";
 
-const lang = navigator.language.startsWith("en") ? "en" : "ca";
+export function useTexts() {
+  const { language } = useLanguage();
 
-export const homeText = lang === "en" ? homeEN : homeCA;
-export const calculateText = lang === "en" ? calculateEN : calculateCA;
+  const homeText = language === "en" ? homeTextEN : homeTextCA;
+  const calculateText = language === "en" ? calculateTextEN : calculateTextCA;
+
+  return { homeText, calculateText };
+}
