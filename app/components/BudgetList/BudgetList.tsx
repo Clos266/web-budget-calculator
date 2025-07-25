@@ -1,6 +1,7 @@
 import BudgetCard from "../Cards/BudgetCard";
 import { useBudgets } from "~/hooks/useBudgets";
 import type { SavedBudget } from "~/types/SavedBudget";
+import { useTexts } from "~/i18n";
 import { budgetListText } from "~/i18n/ca/budgetListText";
 import { FiRefreshCcw } from "react-icons/fi";
 
@@ -17,7 +18,7 @@ const BudgetList = ({ budgets }: Props) => {
     dateAsc,
     priceAsc,
   } = useBudgets(budgets);
-
+  const { budgetListText } = useTexts();
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <h2 className="text-xl font-bold mb-6 text-center">

@@ -3,9 +3,13 @@ import { homeText as homeTextCA } from "./ca/homeText";
 import { textFooter as textFooterEN } from "./en/footer";
 import { textFooter as textFooterCA } from "./ca/footer";
 import { navLinks as navigationEN } from "./en/navigation";
-import { navLinks as navigationCA } from "./ca/navigation"; 
+import { navLinks as navigationCA } from "./ca/navigation";
+import { formText as formTextCA } from "./ca/formText";
+import { formText as formTextEN } from "./en/formText";
 import { calculateText as calculateTextEN } from "./en/calculateText";
 import { calculateText as calculateTextCA } from "./ca/calculateText";
+import { budgetListText as budgetListTextCA } from "./ca/budgetListText";
+import { budgetListText as budgetListTextEN } from "./en/budgetListText";
 import { budgetCardText as budgetCardTextEN } from "./en/budgetCardText";
 import { budgetCardText as budgetCardTextCA } from "./ca/budgetCardText";
 import { serviceCardText as serviceCardTextEN } from "./en/serviceCardText";
@@ -18,9 +22,23 @@ export function useTexts() {
   const homeText = language === "en" ? homeTextEN : homeTextCA;
   const textFooter = language === "en" ? textFooterEN : textFooterCA;
   const navigation = language === "en" ? navigationEN : navigationCA;
+  const formText = language === "en" ? formTextEN : formTextCA;
+  const budgetListText =
+    language === "en" ? budgetListTextEN : budgetListTextCA;
   const calculateText = language === "en" ? calculateTextEN : calculateTextCA;
-  const budgetCardText = language === "en" ? budgetCardTextEN : budgetCardTextCA;
-  const serviceCardText = language === "en" ? serviceCardTextEN : serviceCardTextCA;
+  const budgetCardText =
+    language === "en" ? budgetCardTextEN : budgetCardTextCA;
+  const serviceCardText =
+    language === "en" ? serviceCardTextEN : serviceCardTextCA;
 
-  return { homeText, calculateText, budgetCardText, serviceCardText, textFooter, navigation};
+  return {
+    homeText,
+    calculateText,
+    budgetCardText,
+    serviceCardText,
+    textFooter,
+    navigation,
+    formText,
+    budgetListText,
+  };
 }

@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import { MdError } from "react-icons/md";
-import { findInputError, isFormInvalid } from "./findImputError";
+import { findInputError, isFormInvalid } from "./findInputError";
 import type { RegisterOptions } from "react-hook-form";
 
 type InputProps = {

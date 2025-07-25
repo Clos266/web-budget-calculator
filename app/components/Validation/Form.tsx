@@ -1,7 +1,7 @@
 import InputValidation from "./InputValidation";
 import { useForm, FormProvider } from "react-hook-form";
 import { SITE_NAME } from "~/constants/site";
-import { formText } from "~/i18n/ca/formText";
+import { useTexts } from "~/i18n";
 
 interface FormProps {
   onSubmitForm: (data: any) => void;
@@ -14,7 +14,7 @@ const Form = ({ onSubmitForm }: FormProps) => {
     onSubmitForm(data);
     methods.reset();
   });
-
+  const { formText } = useTexts();
   return (
     <FormProvider {...methods}>
       <form onSubmit={onSubmit} noValidate className="p-4 max-w-4xl mx-auto">
