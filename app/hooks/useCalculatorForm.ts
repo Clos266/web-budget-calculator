@@ -1,4 +1,3 @@
-// 📁 hooks/useCalculatorForm.ts
 import { useState, useEffect } from "react";
 import { calculateTotal } from "~/utils/calculateTotal";
 

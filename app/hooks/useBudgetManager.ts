@@ -1,4 +1,3 @@
-// 📁 hooks/useBudgetManager.ts
 import { useState } from "react";
 import type { SavedBudget } from "~/types/SavedBudget";
 
