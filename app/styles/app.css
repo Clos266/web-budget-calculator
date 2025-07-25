@@ -2,9 +2,11 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-@apply text-blue-600 dark:text-white;
+  background-color: #fff;
+  color: #2563eb;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
+    background-color: #0f172a;
+    color: #fff;
   }
 }
