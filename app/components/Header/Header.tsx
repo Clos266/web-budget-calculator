@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "app/assets/logo.svg";
-import { navLinks } from "~/i18n/ca/navigation";
+import { useTexts } from "~/i18n";
 import { loginButtons } from "~/data/loginButtons";
 import { SITE_NAME } from "~/constants/site";
 import LanguageSwitcher from "~/components/LanguageSwitcher/LanguageSwitcher";
 
 const Header = () => {
+  const { navigation } = useTexts();
   return (
     <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
@@ -21,7 +22,7 @@ const Header = () => {
 
         <nav className="flex flex-wrap items-center gap-6 hidden md:flex ">
           <ul className="flex gap-6">
-            {navLinks.map(({ path, label }) => (
+            {navigation.map(({ path, label }) => (
               <li key={label}>
                 <Link
                   to={path}

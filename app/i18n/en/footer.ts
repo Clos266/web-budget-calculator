@@ -1,3 +1,3 @@
 export const textFooter = {
-  copyright: "All rights reserved.",
+  copyright: " All rights reserved.",
 };
