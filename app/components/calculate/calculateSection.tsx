@@ -1,6 +1,6 @@
 import PricingCard from "~/components/Cards/PricingCard";
 import { services } from "~/data/services";
-import { calculateText } from "~/i18n/ca/calculateText";
+import { useTexts } from "~/i18n";
 
 type Props = {
   hasDiscount: boolean;
@@ -25,6 +25,8 @@ export default function CalculatorSection({
   setNumlanguage,
   total,
 }: Props) {
+  const { calculateText } = useTexts();
+
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-8">
       <div className="flex items-center justify-center gap-3">

@@ -1,7 +1,7 @@
 import type { BudgetPricingCardProps } from "~/types/BudgetCardProps";
 import { formatDate } from "~/utils/format";
 import { getServiceTags } from "~/utils/services";
-import { budgetCardText } from "~/i18n/ca/budgetCardText";
+import { useTexts } from "~/i18n";
 
 const BudgetCard = ({
   name,
@@ -16,7 +16,7 @@ const BudgetCard = ({
   total,
 }: BudgetPricingCardProps) => {
   const serviceTags = getServiceTags({ seo, ads, web, pages, language });
-
+  const { budgetCardText } = useTexts();
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 p-6 mb-8">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
