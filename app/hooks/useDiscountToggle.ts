@@ -1,4 +1,3 @@
-// 📁 hooks/useDiscountToggle.ts
 import { useState } from "react";
 
 export function useDiscountToggle() {

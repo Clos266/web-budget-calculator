@@ -12,10 +12,12 @@ This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to dee
 
 - Vite
 
-- Tailwind CSS
+Vitest
+
+Tailwind CSS
 
 📌 Project Status
-The MVP is complete and fully functional, except for the last exercise, which I couldn’t finish due to time constraints. Below is the timeline for this sprint: Sprint End Planned: 18-07-2025
+The MVP is complete and fully functional, but there are several improvements planned, as listed below.
 
 🛠️ Getting Started
 
@@ -39,14 +41,17 @@ $ npm run dev
 
 📈 Future Improvements
 
-- Implement testing. While I’m still solidifying core concepts, adding tests is a priority to ensure long-term maintainability and reliability.
+- Enhance testing
+  While I’m still solidifying core concepts, I’ve started adding some tests — but the test suite is not yet complete.
 
-- Add multilingual support. The app currently displays content only in Catalan — I plan to implement internationalization so it can be viewed in multiple languages.
+- Improve multilingual support
+  The app currently supports English and Catalan. I plan to implement full internationalization (i18n) to make it available in additional languages.
 
-- Refactor folder structure. Being my second React project and the first using React Router, the architecture evolved during development. A cleaner structure will improve clarity.
+- Refactor folder structure
+  As this is my second React project — and the first using React Router the architecture evolved as I learned. A refactor will help make the structure cleaner and more maintainable.
 
-- Split complex components. Several files handle too many responsibilities; I’ll divide them into smaller, more focused units.
+- Add smooth animations
+  Enhancing transitions and interactivity is on the roadmap, once the core functionality is fully polished.
 
-- Add smooth animations. Improving transitions and interactivity is on the roadmap, once the core functionality is solid.
-
-- Enable budget sharing via URL. One of the final goals is to allow users to share a fully pre-filled budget via URL parameters. This enhances usability and supports real-world use cases, like sharing recommendations with others.
+- Enable budget sharing via URL
+  One of the final goals is to allow users to share fully pre-filled budgets via URL parameters. This will boost usability and make it easy to share personalized recommendations with others.
