@@ -20,7 +20,6 @@ const budgets: SavedBudget[] = [
 ];
 
 describe("useBudgets", () => {
-  // ✅ Verifica que al iniciar el hook se combinen budgets externos con fakeBudgets
   it("starts with combined budgets and fakeBudgets", async () => {
     const { result } = renderHook(() => useBudgets(budgets));
 
@@ -31,7 +30,6 @@ describe("useBudgets", () => {
     });
   });
 
-  // 🔍 Filtra los budgets por término de búsqueda (coincidencia por nombre, insensible a mayúsculas/minúsculas)
   it("filters budgets by search term", async () => {
     const { result } = renderHook(() => useBudgets(budgets));
 
@@ -47,7 +45,6 @@ describe("useBudgets", () => {
     });
   });
 
-  // 📅 Ordena los budgets por fecha de forma descendente (más recientes primero)
   it("sorts budgets by date", async () => {
     const { result } = renderHook(() => useBudgets(budgets));
 
@@ -65,7 +62,6 @@ describe("useBudgets", () => {
     });
   });
 
-  // 💰 Ordena los budgets por precio de forma descendente (mayor a menor)
   it("sorts budgets by price", async () => {
     const { result } = renderHook(() => useBudgets(budgets));
 
@@ -81,7 +77,6 @@ describe("useBudgets", () => {
     });
   });
 
-  // ♻️ Restablece todos los filtros y búsqueda al estado inicial
   it("resets filters", async () => {
     const { result } = renderHook(() => useBudgets(budgets));
 

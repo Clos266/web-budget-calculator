@@ -43,7 +43,6 @@ export function Layout({ children }: { children: ReactNode }) {
   );
 }
 
-// Aquí aplicamos el Provider alrededor del Outlet (árbol de React)
 export default function App() {
   return (
     <LanguageProvider>
