@@ -12,7 +12,7 @@ This project is part of Sprint 6 of the IT Academy Bootcamp. The goal was to dee
 
 - Vite
 
-Vitest
+- Vitest
 
 Tailwind CSS
 
