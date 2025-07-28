@@ -12,10 +12,12 @@ React Router
 
 Vite
 
+Vitest
+
 Tailwind CSS
 
 📌 Project Status
-The MVP is complete and fully functional, except for the last exercise, which I couldn’t finish due to time constraints. Below is the timeline for this sprint: Sprint End Planned: 18-07-2025
+The MVP is complete and fully functional, but there are several improvements planned, as listed below.
 
 🛠️ Getting Started
 
@@ -38,12 +40,18 @@ $ npm run dev
 ```
 
 📈 Future Improvements
-Add tests (though I haven’t fully mastered the basics yet, so I’m not sure how to approach testing at this stage).
 
-Refactor all text content to be consistently in English (currently there's some Spanglish/Catanglish).
+- Enhance testing
+  While I’m still solidifying core concepts, I’ve started adding some tests — but the test suite is not yet complete.
 
-Improve folder structure — this is my second React project and my first one using React Router, so things got a bit messy.
+- Improve multilingual support
+  The app currently supports English and Catalan. I plan to implement full internationalization (i18n) to make it available in additional languages.
 
-Split large files that contain too much logic or too many responsibilities.
+- Refactor folder structure
+  As this is my second React project — and the first using React Router the architecture evolved as I learned. A refactor will help make the structure cleaner and more maintainable.
 
-Add smooth page transitions and animations to improve user experience — although for now, my priority is mastering React before diving into more advanced visual polish.
+- Add smooth animations
+  Enhancing transitions and interactivity is on the roadmap, once the core functionality is fully polished.
+
+- Enable budget sharing via URL
+  One of the final goals is to allow users to share fully pre-filled budgets via URL parameters. This will boost usability and make it easy to share personalized recommendations with others.
